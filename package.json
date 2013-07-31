@@ -1,0 +1,10 @@
+{
+  "name": "fh-webapp",
+  "version": "0.1.0",
+  "description": "FeedHenry REST API routes",
+  "main": "lib/app.js",
+  "scripts": {
+    "test": "node test/tests.js"
+  },
+  "author": "FeedHenry"
+}
