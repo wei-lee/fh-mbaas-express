@@ -37,3 +37,31 @@ exports.doAuthedCall = function (params, cb){
 exports.doNonAuthCall = function (params, cb){
   return cb(undefined, {"done":process.env});
 };
+
+exports.retObject = function(params, callback) {
+  return callback(null, {hello: 'world'});
+};
+
+exports.retString = function(params, callback) {
+  var html = "<html>"
+  + "<body>"
+  + "Hello World"
+  + "</body>"
+  + "</html>";
+
+  return callback(null, html);
+};
+
+exports.retBinary = function(params, callback) {
+  var buf = new Buffer([0,1,2,3,4,5,6,7,8,9,10,11,12,13,26,13,10,13,10,65,65,65]);
+
+  return callback(null, buf, {'Content-Type': "image/png"});
+};
+
+exports.textplain = function(params, callback) {
+  return callback(null, {foo: params.foo});
+};
+
+exports.textreturn = function(params, callback){
+  return callback(null, 'text', { "Content-Type" : "text/plain" })
+};

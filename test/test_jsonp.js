@@ -1,33 +1,27 @@
-var assert = require('asserto');
+var request = require('request');
 module.exports = {
-  'test jsonp' : function(done) {
-    assert.response({
-      url : '/cloud/jsonp?_callback=jsonpfunc&_jsonpdata=%7B%22foo%22%3A%22bar%22%7D',
-      method : 'GET'
-    }, {
-      status : 200
-    }, function(err, res) {
+  'test jsonp' : function(test, assert) {
+    request(process.env.FH_TEST_HOSTNAME + '/cloud/jsonp?_callback=jsonpfunc&_jsonpdata=%7B%22foo%22%3A%22bar%22%7D', function(err, response, body){
       assert.ok(!err);
-      assert.equal('text/javascript', res.headers['content-type']);
-      assert.notEqual(res.body.indexOf('jsonpfunc'), -1);
-      assert.notEqual(res.body.indexOf("bar"), -1);
-      done();
+      assert.ok(response.statusCode === 200);
+      assert.ok('text/javascript' === response.headers['content-type']);
+      assert.ok(body.indexOf('jsonpfunc')>-1);
+      assert.ok(body.indexOf("bar")>-1);
+      test.finish();
     });
   },
-  'test html' : function(done) {
-    assert.response({
-      url : '/cloud/html',
-      method : 'POST',
+  'test html' : function(test, assert) {
+    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/html',
+    {
       headers : {
         'Content-Type' : 'application/json'
       }
-    }, {
-      status : 200
-    }, function(err, res) {
+    }, function(err, response, body){
       assert.ok(!err);
-      assert.equal(res.headers['content-type'], 'text/html');
-      assert.equal(res.body, '<html><body>Hello World</body></html>');
-      done();
+      assert.ok(response.statusCode === 200);
+      assert.equal(response.headers['content-type'], 'text/html');
+      assert.equal(body, '<html><body>Hello World</body></html>');
+      test.finish();
     });
   }
 };

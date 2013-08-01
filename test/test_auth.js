@@ -1,64 +1,61 @@
-var assert = require('asserto');
-util = require('util');
+var request = require('request');
 module.exports = {
-  "test authed call with header" : function (done){
-    assert.response({
-      url : '/cloud/doAuthedCall/',
-      method : 'POST',
-      data : JSON.stringify({}),
+  "test authed call with header" : function(test, assert){
+    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
+    {
+      json:{},
       headers : {
         'Content-Type' : 'application/json',
         "x-fh-auth-app":"testkey"
       }
-    }, {status : 200}, function(err, res) {
-      var d1 = JSON.parse(res.body);
+    }, function(err, response, data){
       assert.ok(!err);
-      assert.notEqual(d1, null);
-      done();
+      assert.ok(response.statusCode === 200);
+      assert.notEqual(data, null);
+      test.finish();
     });
   },
-  "test auth call with param key": function(done){
-    assert.response({
-      url : '/cloud/doAuthedCall/',
-      method : 'POST',
-      data : JSON.stringify({__fh:{"appkey":"testkey"}}),
+  "test auth call with param key" : function(test, assert){
+    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
+    {
+      json : {__fh:{"appkey":"testkey"}},
       headers : {
         'Content-Type' : 'application/json'
       }
-    }, {status : 200}, function(err, res) {
+    }, function(err, response, data){
       assert.ok(!err);
-      var d1 = JSON.parse(res.body);
-      assert.notEqual(d1, null);
-      done();
+      assert.ok(response.statusCode === 200);
+      assert.notEqual(data, null);
+      test.finish();
     });
   },
-  "test auth fails with wrong header key": function(done){
-    assert.response({
-      url : '/cloud/doAuthedCall/',
-      method : 'POST',
-      data : JSON.stringify({}),
+  "test auth fails with wrong header key": function(test, assert){
+    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
+    {
+      json : {},
       headers : {
         'Content-Type' : 'application/json',
         "x-fh-auth-app":"wrongkey"
       }
-    }, {status : 401}, function(err, res) {
+    }, function(err, response, data){
       assert.ok(!err);
-      assert.ok(res && res.body);
-      done();
+      assert.ok(response.statusCode === 401);
+      assert.ok(response && data);
+      test.finish();
     });
   },
-  "test auth fails with wrong param key" : function (done){
-    assert.response({
-      url : '/cloud/doAuthedCall/',
-      method : 'POST',
-      data : JSON.stringify({__fh:{"appkey":"wrongkey"}}),
+  "test auth fails with wrong param key" : function(test, assert){
+    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
+    {
+      json : {__fh:{"appkey":"wrongkey"}},
       headers : {
         'Content-Type' : 'application/json'
       }
-    }, {status : 401}, function(err, res) {
-      var d1 = JSON.parse(res.body);
-      assert.notEqual(d1, null);
-      done();
+    }, function(err, response, data){
+      assert.ok(!err);
+      assert.ok(response.statusCode === 401);
+      assert.notEqual(data, null);
+      test.finish();
     });
   }
 };
