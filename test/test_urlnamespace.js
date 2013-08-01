@@ -20,7 +20,6 @@ module.exports = {
       },
       function(err, response, data){
         assert.ok(!err);
-        console.log(data);
         assert.ok(response);
         assert.ok(data.error === "Error: no function specified, or unsupported HTTP method used");
         test.finish();
@@ -33,7 +32,6 @@ module.exports = {
     },
     function(err, response, data){
       assert.ok(!err);
-      console.log(data);
       assert.ok(response);
       assert.ok(data.error === "Error: no such function: doesnotexist");
       test.finish();

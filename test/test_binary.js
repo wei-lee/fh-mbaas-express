@@ -43,12 +43,10 @@ module.exports = {
       test.finish();
 
 //      response.on('data', function(chunk) {
-//        console.log('data');
 //        chunk.copy(receivedData, bufferlen);
 //        bufferlen += chunk.length;
 //      });
 //      response.on('end', function () {
-//        console.log("BODY: ", JSON.stringify(receivedData));
 //        assert.ok(receivedData[0] = 0);
 //        assert.ok(receivedData[1] = 1);
 //        assert.ok(receivedData[2] = 2);
