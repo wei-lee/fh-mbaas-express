@@ -16,9 +16,8 @@ exports.globalSetUp = function(test, assert){
 
 exports.globalTearDown = function(test, assert){
   // shut down the server so the tests can exit gracefully
-  setTimeout(function(){
-    application.close();
-  }, 3000); //TODO Shouldn't need this but teardown is stupid
+
+  application.close();
   test.finish();
 
 };

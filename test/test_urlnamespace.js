@@ -39,24 +39,4 @@ module.exports = {
       test.finish();
     });
   }
-//    assert.response(fhnodeapp.server, {
-//      url : '/'
-//    }, {
-//      body : 'Your Cloud App is Running',
-//      status : 200
-//    });
-//
-//    assert.response(fhnodeapp.server, {
-//      url : '/cloud'
-//    }, {
-//      body : 'Error: No end point: /cloud/',
-//      status : 404
-//    });
-//
-//    assert.response(fhnodeapp.server, {
-//      url : '/randomblahblah'
-//    }, {
-//      body : 'Error: No end point: /randomblahblah',
-//      status : 404
-//    });
 };
