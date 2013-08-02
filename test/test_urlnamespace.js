@@ -24,20 +24,8 @@ module.exports = {
       function(err, response, data){
         assert.ok(!err);
         assert.ok(response);
-        assert.ok(data.error === "Error: no function specified, or unsupported HTTP method used");
+        assert.ok(data.error === "Error: no function specified");
         test.finish();
-    });
-  },
-  'test /cloud/doesnotexist endpoint' : function(test, assert) {
-    request.get(process.env.FH_TEST_HOSTNAME + '/cloud/doesnotexist',
-    {
-      json : {} // force request to parse incoming json
-    },
-    function(err, response, data){
-      assert.ok(!err);
-      assert.ok(response);
-      assert.ok(data.error === "Error: no such function: doesnotexist");
-      test.finish();
     });
   }
 };

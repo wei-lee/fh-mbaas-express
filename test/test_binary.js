@@ -20,7 +20,7 @@ module.exports = {
     }, function(err, response, body){
       assert.ok(!err);
       assert.ok(response && response.statusCode === 200);
-      assert.ok('application/json' === response.headers['content-type']);
+      assert.ok('text/plain' === response.headers['content-type']);
       assert.ok(body === '<html><body>Hello World</body></html>');
       test.finish();
     });

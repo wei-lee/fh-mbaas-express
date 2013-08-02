@@ -63,7 +63,7 @@ exports.textplain = function(params, callback) {
 };
 
 exports.textreturn = function(params, callback){
-  return callback(null, 'text', { "Content-Type" : "text/plain" })
+  return callback(null, 'text')
 };
 
 var b1mb = new Buffer(1048576);

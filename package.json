@@ -12,6 +12,12 @@
     "fh-reportingclient" : "*",
     "underscore" : "1.5.1"
   },
+  "directories": {
+    "lib": "lib"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
   "devDependencies" : {
     "express" : "3.3.4",
     "proxyquire" : "0.4.1",
