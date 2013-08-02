@@ -65,3 +65,16 @@ exports.textplain = function(params, callback) {
 exports.textreturn = function(params, callback){
   return callback(null, 'text', { "Content-Type" : "text/plain" })
 };
+
+var b1mb = new Buffer(1048576);
+b1mb.fill('h');
+exports.d1mb = function(params, callback){
+  return callback(null, b1mb);
+};
+
+var b100kb = new Buffer(102400);
+b100kb.fill('h');
+exports.d100kb = function(params, callback){
+  return callback(null, b100kb);
+};
+
