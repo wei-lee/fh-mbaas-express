@@ -9,7 +9,8 @@
   "author": "FeedHenry",
   "dependencies" : {
     "fh-connect" : "1.8.6",
-    "fh-reportingclient" : "*"
+    "fh-reportingclient" : "*",
+    "underscore" : "1.5.1"
   },
   "devDependencies" : {
     "express" : "3.3.4",
