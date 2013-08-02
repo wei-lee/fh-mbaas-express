@@ -4,7 +4,7 @@
   "description": "FeedHenry REST API routes",
   "main": "lib/app.js",
   "scripts": {
-    "test": "whiskey --tests \"test/test_auth.js test/test_binary.js test/test_helloworld.js test/test_jsonp.js test/test_sys.js test/test_textplain.js test/test_urlnamespace.js\" --global-setup-teardown \"test/setup.js\""
+    "test": "hello=$(ls -1 test/test_*); bahaha=$(echo $hello | tr -d '\n'); whiskey --tests \"$bahaha\" --global-setup-teardown \"test/setup.js\""
   },
   "author": "FeedHenry",
   "dependencies" : {

@@ -1,4 +1,7 @@
 // Copyright (c) FeedHenry 2011
+/*
+  Tests all the stuff that isn't covered by /cloud/someact
+ */
 var request = require('request');
 
 module.exports = {
