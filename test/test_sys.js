@@ -38,5 +38,14 @@ module.exports = {
       assert.ok(data.endpoints.length > 0);
       test.finish();
     });
+  },
+  'test sys/info/version endpoint' : function(test, assert) {
+
+    request(process.env.FH_TEST_HOSTNAME + '/sys/info/version', function(err, response, body){
+      assert.ok(!err);
+      assert.ok(response);
+      assert.ok(body);
+      test.finish();
+    });
   }
 };
