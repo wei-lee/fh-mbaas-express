@@ -13,7 +13,7 @@ module.exports = {
   },
   'test high concurrency' : function(test, assert){
     var exec = require('child_process').exec;
-    exec('ab -c 10 -n 1000 http://127.0.0.1:3000/cloud/d100kb',
+    exec('ab -c 10 -n 1000 ' + process.env.FH_TEST_HOSTNAME + '/cloud/d100kb',
     function (error, stdout, stderr) {
       var rex = /Failed requests:\s.+0/;
       assert.ok(!error);
