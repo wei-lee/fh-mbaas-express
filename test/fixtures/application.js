@@ -6,7 +6,7 @@ var mainjs = require('main.js');
 var app = express();
 //app.use(express.bodyParser()); // this causes issues. Why?
 app.use('/sys', webapp.sys(mainjs));
-app.use('/mbass', webapp.mbaas);
+app.use('/mbaas', webapp.mbaas);
 app.use('/cloud', webapp.cloud(mainjs));
 
 module.exports = app.listen(3000);

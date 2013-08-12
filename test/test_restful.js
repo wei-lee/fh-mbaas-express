@@ -14,7 +14,6 @@ module.exports = {
   },
   'test JSON return gets back application/json' : function(test, assert) {
     request.get(process.env.FH_TEST_HOSTNAME + '/cloud/echo', function(err, response, body){
-      console.log(response.headers);
       assert.ok(response.headers['content-type'] === "application/json");
       test.finish();
     });

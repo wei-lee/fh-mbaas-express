@@ -10,7 +10,8 @@
   "dependencies" : {
     "fh-connect" : "1.8.6",
     "fh-reportingclient" : "*",
-    "underscore" : "1.5.1"
+    "underscore" : "1.5.1",
+    "fh-api" : "*"
   },
   "directories": {
     "lib": "lib"
@@ -24,6 +25,7 @@
     "whiskey" : "git://github.com/cloudkick/whiskey.git#58fc2944ac",
     "cli-color" : "0.2.2",
     "async" : "0.2.9",
-    "request" : "2.25.0"
+    "request" : "2.25.0",
+    "nock" : "0.22.1"
   }
 }
