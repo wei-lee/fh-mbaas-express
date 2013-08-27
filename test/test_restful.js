@@ -8,7 +8,7 @@ module.exports = {
       assert.ok(headers['content-type'] === "application/json");
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['cache-control'] === "no-cache");
-      assert.ok(headers['x-fh-api-version'] === "0.1.0");
+      assert.ok(headers['x-fh-api-version'].substring(0, 2) === "0.");
       test.finish();
     });
   },
