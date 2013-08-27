@@ -22,14 +22,20 @@ Add a file to your FeedHenry app **'cloud/application.js'**, with the following 
     module.exports = app.listen(process.env.FH_PORT || process.env.VCAP_APP_PORT || 8001);
 
 ##Customising & Extending
-The above application.js is just an [Expressjs application](http://expressjs.com/api.html) - you can create custom API handlers in the Express format by doing:
+The above application.js is just an [Expressjs application](http://expressjs.com/api.html) - it's easily extensible. 
+###Custom APIs
+You can create custom API handlers in the Express format by doing:
 
     app.use('/myapi', function(req, res){
       res.end('My custom response');
     });
+###Serving Static Files
+Express has a built-in static file server. In this example, we host files under the public directory:  
+    
+    app.use(express.static(__dirname + '/public'));
 
 
-#REST API
+#REST API	
 
 
 ##Cloud
