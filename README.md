@@ -11,8 +11,8 @@ Add a file to your FeedHenry app **'cloud/application.js'**, with the following 
 
     var webapp = require('fh-webapp');
     var express = require('express');
-    var mainjs = require('main.js');
     $fh = require('fh-api');
+    var mainjs = require('main.js');
 
     var app = express();
     app.use('/sys', webapp.sys(mainjs));
