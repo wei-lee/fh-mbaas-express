@@ -19,6 +19,11 @@ Add a file to your FeedHenry app **'cloud/application.js'**, with the following 
     app.use('/mbaas', webapp.mbaas);
     app.use('/cloud', webapp.cloud(mainjs));
 
+    // You can define custom URL handlers here, like this one:
+    app.use('/', function(req, res){
+      res.end('Your Cloud App is Running');
+    });
+
     module.exports = app.listen(process.env.FH_PORT || process.env.VCAP_APP_PORT || 8001);
 
 ##Customising & Extending
