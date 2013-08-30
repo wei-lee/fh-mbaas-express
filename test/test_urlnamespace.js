@@ -10,8 +10,8 @@ module.exports = {
     request(process.env.FH_TEST_HOSTNAME + '/', function(err, response, body){
       assert.ok(!err);
       assert.ok(response);
-      assert.ok(response.statusCode = 404);
-      assert.ok(body === "Cannot GET /");
+      assert.ok(response.statusCode = 200);
+      assert.ok(body === "Your Cloud App is Running");
       test.finish();
     });
   },
