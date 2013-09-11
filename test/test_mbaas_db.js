@@ -1,15 +1,26 @@
 var request = require('request');
+var nock = require('nock');
+
+nock('https://testing.feedhenry.me')
+	.filteringPath(function(path) {
+		return '*';
+	})
+	.get('/box/api/mbaas/admin/authenticateRequest',"*")
+	.reply(200,{});
+
+
 module.exports = {
   "setUp" : function(test, assert){
 
     test.finish();
   },
-  "test DB call with correct api key" : function(test, assert){
+  "test DB call with correct api key and user key" : function(test, assert){
     request.post(process.env.FH_TEST_HOSTNAME + '/mbaas/db/',
     {
       json:{
         "act": "list",
-        "type": "myFirstEntityy"
+        "type": "myFirstEntityy",
+	      "__fh":{"appkey":"testkey","userApiKey":"akey"}
       },
       headers : {
         'Content-Type' : 'application/json',
