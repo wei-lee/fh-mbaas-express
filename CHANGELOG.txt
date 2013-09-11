@@ -1,6 +1,10 @@
 ----------------------------------------------------------------------
 Component: fh-webapp
 ----------------------------------------------------------------------
+Release 0.2.0 (IR210)
+
+CHANGES
+ * 4568 and authorisation calls on mbass db endpoints
 
 Release 0.1.0 (IR209)
 
