@@ -15,5 +15,6 @@ exports.globalSetUp = function(test, assert){
 exports.globalTearDown = function(test, assert){
   application.close();
   ditchMock.done();
+  authMock.done();
   test.finish();
 };
