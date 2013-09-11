@@ -12,7 +12,7 @@ module.exports = {
       json:{
         "act": "list",
         "type": "myFirstEntityy",
-	      "__fh":{"appkey":"testkey","userApiKey":"akey"}
+	      "__fh":{"appkey":"testkey","userkey":"akey"}
       },
       headers : {
         'Content-Type' : 'application/json',
