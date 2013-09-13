@@ -1,6 +1,10 @@
 ----------------------------------------------------------------------
 Component: fh-webapp
 ----------------------------------------------------------------------
+Release 0.5.0 (IR210)
+CHANGES
+ * minor bug fix for local dev when using local db
+
 Release 0.2.0 (IR210)
 
 CHANGES
