@@ -21,10 +21,16 @@ RELEASE_DIR = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER)
 
 all: clean npm_deps test
 
-test: npm_deps
-	npm test
+test: test_accept_cov
 
-npm_deps:
+test_accept: npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/accept
+
+test_accept_cov: npm_deps
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-accept ./node_modules/.bin/turbo -- --setUp ./test/setup.js --tearDown ./test/setup.js ./test/accept
+
+
+npm_deps: 
 	npm install .
 
 # Note we create two distributions, one with Mongo, one without.
