@@ -1,6 +1,8 @@
 var request = require('request');
+var assert = require('assert');
+
 module.exports = {
-  "test authed call with header" : function(test, assert){
+  "test authed call with header" : function(finish){
     request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
     {
       json:{},
@@ -12,10 +14,10 @@ module.exports = {
       assert.ok(!err);
       assert.ok(response.statusCode === 200);
       assert.notEqual(data, null);
-      test.finish();
+      finish();
     });
   },
-  "test auth call with param key" : function(test, assert){
+  "test auth call with param key" : function(finish){
     request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
     {
       json : {__fh:{"appkey":"testkey"}},
@@ -26,10 +28,10 @@ module.exports = {
       assert.ok(!err);
       assert.ok(response.statusCode === 200);
       assert.notEqual(data, null);
-      test.finish();
+      finish();
     });
   },
-  "test auth fails with wrong header key": function(test, assert){
+  "test auth fails with wrong header key": function(finish){
     request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
     {
       json : {},
@@ -41,10 +43,10 @@ module.exports = {
       assert.ok(!err);
       assert.ok(response.statusCode === 401);
       assert.ok(response && data);
-      test.finish();
+      finish();
     });
   },
-  "test auth fails with wrong param key" : function(test, assert){
+  "test auth fails with wrong param key" : function(finish){
     request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
     {
       json : {__fh:{"appkey":"wrongkey"}},
@@ -55,7 +57,7 @@ module.exports = {
       assert.ok(!err);
       assert.ok(response.statusCode === 401);
       assert.notEqual(data, null);
-      test.finish();
+      finish();
     });
   }
 };

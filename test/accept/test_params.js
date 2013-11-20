@@ -2,9 +2,10 @@
   Tests param returning under different scenarios
  */
 var request = require('request');
+var assert = require('assert');
 
 module.exports = {
-  'test hello world with params' : function(test, assert) {
+  'test hello world with params' : function(finish) {
     request.post(process.env.FH_TEST_HOSTNAME + '/cloud/helloWorld/', {
       json: {'name': 'fred'},
       headers : {
@@ -13,10 +14,10 @@ module.exports = {
     }, function(err, response, body){
       assert.ok(response.statusCode === 200);
       assert.equal(body, 'well fred');
-      test.finish();
+      finish();
     });
   },
-  'test echo with many types of params in POST' : function(test, assert) {
+  'test echo with many types of params in POST' : function(finish) {
     request.post(process.env.FH_TEST_HOSTNAME + '/cloud/echo', {
       json: {
         echo :
@@ -35,11 +36,11 @@ module.exports = {
       assert.ok(typeof data.emptyObject === 'object');
       assert.ok(data.array instanceof Array);
       assert.ok(data.array.length === 3);
-      test.finish();
+      finish();
 
     });
   },
-  'test echo with many types of params in GET query string' : function(test, assert) {
+  'test echo with many types of params in GET query string' : function(finish) {
     request.get(process.env.FH_TEST_HOSTNAME + '/cloud/echo', {
       qs: {
         echo :
@@ -58,7 +59,7 @@ module.exports = {
       assert.ok(data.bool === 'true');
       assert.ok(data.array instanceof Array);
       assert.ok(data.array.length === 3);
-      test.finish();
+      finish();
     });
   }
 };

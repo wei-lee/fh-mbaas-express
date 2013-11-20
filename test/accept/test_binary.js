@@ -1,17 +1,20 @@
 // Copyright (c) FeedHenry 2011
 var request = require('request');
+var assert = require('assert');
+
+
 module.exports = {
-  'test binary retObject' : function(test, assert) {
+  'test binary retObject' : function(finish) {
     request(process.env.FH_TEST_HOSTNAME + '/cloud/retObject?p1=v1', function(err, response, body){
       assert.ok(!err);
       assert.ok(response.statusCode === 200);
       assert.ok('application/json' === response.headers['content-type']);
       assert.ok(body, {hello:'world'});
-      test.finish();
+      finish();
     });
   },
 
-  'test binary retString' : function(test, assert) {
+  'test binary retString' : function(finish) {
     request.get(process.env.FH_TEST_HOSTNAME + '/cloud/retString?p1=v1',
     {
       headers : {
@@ -22,11 +25,11 @@ module.exports = {
       assert.ok(response && response.statusCode === 200);
       assert.ok('text/plain' === response.headers['content-type']);
       assert.ok(body === '<html><body>Hello World</body></html>');
-      test.finish();
+      finish();
     });
   },
 
-  'test binary retBinary' : function(test, assert) {
+  'test binary retBinary' : function(finish) {
     var complete = false;
     request.get(process.env.FH_TEST_HOSTNAME + '/cloud/retBinary?p1=v1',
     {
@@ -40,7 +43,7 @@ module.exports = {
       var receivedData = new Buffer(2048);
       var bufferlen = 0;
       //assert.ok(body instanceof Buffer); //TODO: Figure out what's going on here - this never passed?
-      test.finish();
+      finish();
 
 //      response.on('data', function(chunk) {
 //        chunk.copy(receivedData, bufferlen);
@@ -59,7 +62,7 @@ module.exports = {
     });
 //    setTimeout(function() {
 //      assert.ok(complete);
-//      test.finish();
+//      finish();
 //    }, 1000);
   }
 };

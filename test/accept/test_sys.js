@@ -1,17 +1,18 @@
 // Copyright (c) FeedHenry 2011
 var request = require('request');
+var assert = require('assert');
 
 module.exports = {
-  'test sys/info/ping endpoint' : function(test, assert) {
+  'test sys/info/ping endpoint' : function(finish) {
 
     request(process.env.FH_TEST_HOSTNAME + '/sys/info/ping', function(err, response, body){
       assert.ok(!err);
       assert.ok(response);
       assert.ok(body === "\"OK\"");
-      test.finish();
+      finish();
     });
   },
-  'test sys/info/memory endpoint' : function(test, assert) {
+  'test sys/info/memory endpoint' : function(finish) {
 
     request.get(process.env.FH_TEST_HOSTNAME + '/sys/info/memory', {
       json : {} // force request to make body json
@@ -21,10 +22,10 @@ module.exports = {
       assert.ok(response);
       assert.ok(data);
       assert.ok(data.heapTotal);
-      test.finish();
+      finish();
     });
   },
-  "test /sys/info/endpoints endpoint": function (test, assert){
+  "test /sys/info/endpoints endpoint": function (finish){
     request.get(process.env.FH_TEST_HOSTNAME + '/sys/info/endpoints',
     {
       json : {} // forces Request to parse the response as json
@@ -36,16 +37,16 @@ module.exports = {
       assert.ok(data);
       assert.ok(data.endpoints);
       assert.ok(data.endpoints.length > 0);
-      test.finish();
+      finish();
     });
   },
-  'test sys/info/version endpoint' : function(test, assert) {
+  'test sys/info/version endpoint' : function(finish) {
 
     request(process.env.FH_TEST_HOSTNAME + '/sys/info/version', function(err, response, body){
       assert.ok(!err);
       assert.ok(response);
       assert.ok(body);
-      test.finish();
+      finish();
     });
   }
 };

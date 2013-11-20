@@ -4,16 +4,17 @@
   "description": "FeedHenry REST API routes",
   "main": "lib/webapp.js",
   "scripts": {
-    "test": "listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); whiskey --tests \"$teststorun\" --global-setup-teardown \"test/setup.js\""
+    "test": "listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); ./node_modules/.bin/turbo ./test/accept --setUp ./test/setup.js --tearDown ./test/setup.js"
   },
   "author": "FeedHenry",
   "dependencies" : {
     "fh-connect" : "1.8.6",
     "fh-reportingclient" : "*",
     "underscore" : "1.5.1",
-    "fh-api" : "*",
+    "fh-api-test" : "*",
 	  "request" : "2.25.0",
-	  "async":"0.2.9"
+	  "async":"0.2.9",
+    "cors": "2.1.0"
   },
   "directories": {
     "lib": "lib"
@@ -24,8 +25,10 @@
   "devDependencies" : {
     "express" : "3.3.4",
     "proxyquire" : "0.4.1",
-    "whiskey" : "git://github.com/cloudkick/whiskey.git#58fc2944ac",
     "cli-color" : "0.2.2",
-    "nock" : "0.22.1"
+    "nock" : "0.22.1",
+    "restler" : "*",
+    "turbo-test-runner" : "*",
+    "istanbul": "0.1.42"
   }
 }
