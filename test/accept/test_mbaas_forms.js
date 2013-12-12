@@ -13,7 +13,7 @@ module.exports = {
     finish();
   },
   "test_form_call_to_getForms" : function(finish){
-    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid123456",
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
@@ -31,7 +31,7 @@ module.exports = {
     });
   },
   "test form call to getForm" : function(finish){
-    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid123456/formid123456",
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/formid123456",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
@@ -49,7 +49,7 @@ module.exports = {
       });
   },
   "test form call to getTheme" : function(finish){
-    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid123456/theme",
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/theme",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
