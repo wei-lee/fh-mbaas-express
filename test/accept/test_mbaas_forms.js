@@ -84,25 +84,6 @@ module.exports = {
         finish();
       });
   },
-//  "test form call to submitFormFile" : function(finish){
-//
-//    var filePath = "./test/fixtures/test.pdf";
-//    fs.stat(filePath, function(err, stats) {
-//      assert.ok(!err);
-//      restler.post(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/submitId123456/submitFormFile", {
-//        multipart: true,
-//        headers : {"x-fh-auth-app": "testkey", "Content-Length":stats.size},
-//        data: {
-//          "__fh":{"appkey":"testkey","userkey":"akey"},
-//          "test.pdf": restler.file(filePath, null, stats.size, null, "application/pdf")
-//        }
-//      }).on("complete", function(data) {
-//        assert.ok(data);
-//        assert.ok(data.status === "ok");
-//        finish();
-//      });
-//    });
-//  },
   "test form call to completeFormSubmission" : function(finish){
     request.post(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/submitId123456/completeSubmission",
       {
