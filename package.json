@@ -27,7 +27,6 @@
     "proxyquire" : "0.4.1",
     "cli-color" : "0.2.2",
     "nock" : "0.22.1",
-    "restler" : "*",
     "turbo-test-runner" : "*",
     "istanbul": "0.1.42"
   }

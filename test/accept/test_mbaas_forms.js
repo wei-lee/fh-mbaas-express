@@ -2,8 +2,6 @@ var assert = require('assert');
 var request = require('request');
 var nock = require('nock');
 var fs = require('fs');
-var restler = require('restler');
-
 
 module.exports = {
   "setUp" : function(finish){
