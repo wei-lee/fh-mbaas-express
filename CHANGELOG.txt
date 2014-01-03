@@ -1,6 +1,12 @@
 ----------------------------------------------------------------------
 Component: fh-webapp
 ----------------------------------------------------------------------
+
+Release 0.5.2 - 03-01-2014 IR218 - John Frizelle
+------------------------------------------------
+* 5455 - Explicitly set character encoding to utf-8
+
+
 Release 0.5.0 (IR210)
 CHANGES
  * minor bug fix for local dev when using local db
