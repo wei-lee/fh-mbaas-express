@@ -6,7 +6,7 @@ module.exports = {
   'test expected headers exist on cloud endpoint' : function(finish) {
     request(process.env.FH_TEST_HOSTNAME + '/cloud/echo', function(err, response, body){
       var headers = response.headers;
-      assert.ok(headers['content-type'] === "application/json");
+      assert.ok(response.headers['content-type'] && response.headers['content-type'].indexOf('application/json')>-1);
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['cache-control'] === "no-cache");
       assert.ok(headers['x-fh-api-version'].substring(0, 2) === "0.");

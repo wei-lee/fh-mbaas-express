@@ -1,6 +1,6 @@
 {
-  "name": "fh-webapp-test",
-  "version": "0.5.1",
+  "name": "fh-webapp",
+  "version": "0.6.1",
   "description": "FeedHenry REST API routes",
   "main": "lib/webapp.js",
   "scripts": {

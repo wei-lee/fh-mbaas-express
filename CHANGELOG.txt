@@ -1,6 +1,15 @@
 ----------------------------------------------------------------------
 Component: fh-webapp
 ----------------------------------------------------------------------
+Release 0.61 - 20-01-2014 IR219 - Damian Beresford
+--------------------------------------------------
+* 5697 - Zendesk 2989: Aer Lingus Audit - Update Required (cors whitelist support)
+
+Release 0.6.0 - 03-01-2014 IR218 - John Frizelle
+------------------------------------------------
+* 5455 - Explicitly set character encoding to utf-8
+
+
 Release 0.5.0 (IR210)
 CHANGES
  * minor bug fix for local dev when using local db

@@ -8,7 +8,7 @@ module.exports = {
     request(process.env.FH_TEST_HOSTNAME + '/cloud/retObject?p1=v1', function(err, response, body){
       assert.ok(!err);
       assert.ok(response.statusCode === 200);
-      assert.ok('application/json' === response.headers['content-type']);
+      assert.ok(response.headers['content-type'] && response.headers['content-type'].indexOf('application/json')>-1);
       assert.ok(body, {hello:'world'});
       finish();
     });
