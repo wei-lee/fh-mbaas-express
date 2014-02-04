@@ -1,7 +1,12 @@
 ----------------------------------------------------------------------
 Component: fh-webapp
 ----------------------------------------------------------------------
-Release 0.61 - 20-01-2014 IR219 - Damian Beresford
+
+Release 0.6.2 - 05-02-2014 IR220 - Damian Beresford
+---------------------------------------------------
+* 5897 - fh-webapp does not set the process title
+
+Release 0.6.1 - 20-01-2014 IR219 - Damian Beresford
 --------------------------------------------------
 * 5697 - Zendesk 2989: Aer Lingus Audit - Update Required (cors whitelist support)
 
