@@ -11,7 +11,7 @@ module.exports = {
     finish();
   },
   "test_form_call_to_getForms" : function(finish){
-    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms",
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
@@ -22,14 +22,15 @@ module.exports = {
         }
       },
       function(err, res, data){
+        console.log(" ************ return data ", err, data);
         assert.ok(!err);
         assert.ok(data);
         assert.ok(data.status === "ok");
         finish();
-    });
+      });
   },
   "test form call to getForm" : function(finish){
-    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/formid123456",
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/formid123456",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
@@ -47,7 +48,7 @@ module.exports = {
       });
   },
   "test form call to getTheme" : function(finish){
-    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/theme",
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/theme",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
@@ -65,7 +66,7 @@ module.exports = {
       });
   },
   "test form call to submitFormData" : function(finish){
-    request.post(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/formId123456/submitFormData",
+    request.post(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/formId123456/submitFormData",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
@@ -83,7 +84,7 @@ module.exports = {
       });
   },
   "test form call to completeFormSubmission" : function(finish){
-    request.post(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/submitId123456/completeSubmission",
+    request.post(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/submitId123456/completeSubmission",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
@@ -102,7 +103,7 @@ module.exports = {
       });
   },
   "test form call to getSubmissionStatus" : function(finish){
-    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/submitId123456/status",
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/submitId123456/status",
       {
         json:{
           "__fh":{"appkey":"testkey","userkey":"akey"}
