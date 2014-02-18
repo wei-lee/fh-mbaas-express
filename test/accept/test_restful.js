@@ -15,13 +15,14 @@ module.exports = {
   },
   'test JSON return gets back application/json' : function(finish) {
     request.get(process.env.FH_TEST_HOSTNAME + '/cloud/echo', function(err, response, body){
-      assert.ok(response.headers['content-type'] === "application/json");
+
+      assert.ok(response.headers['content-type'].indexOf("application/json")!= -1);
       finish();
     });
   },
   'test string return gets back text/plain' : function(finish) {
     request.get(process.env.FH_TEST_HOSTNAME + '/cloud/textreturn', function(err, response, body){
-      assert.ok(response.headers['content-type'] === "text/plain");
+      assert.ok(response.headers['content-type'].indexOf("text/plain")!=-1);
       finish();
     });
   },
