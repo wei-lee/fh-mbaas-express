@@ -17,7 +17,7 @@ module.exports = {
         json:{
         },
         headers : {
-          'Content-Type' : 'application/json',
+          'Content-Type' : 'application/json'
         }
       },
       function(err, res, data){
@@ -41,7 +41,7 @@ module.exports = {
         json:{
         },
         headers : {
-          'Content-Type' : 'application/json',
+          'Content-Type' : 'application/json'
         }
       },
       function(err, res, data){
@@ -51,7 +51,7 @@ module.exports = {
         assert.ok(data.status === "ok");
         assert.equal(data.called, "getAppClientConfig", "called incorrect forms function: " + util.inspect(data));
         assert.equal(data.params.deviceId, TEST_DEVICEID, "did not pass device ID to forms function: " + util.inspect(data));
-        assert.equal(data.params.appId, TEST_APPID, "did not pass app ID to forms function: " + util.inspect(data));
+        assert.equal(data.params.appClientId, TEST_APPID, "did not pass app ID to forms function: " + util.inspect(data));
 
         finish();
       });
