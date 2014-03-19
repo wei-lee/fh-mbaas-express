@@ -2,7 +2,11 @@
 Component: fh-webapp
 ----------------------------------------------------------------------
 
-Release 0.6.3 - 25-02-2014 IR221 - Martin Murphy
+Release 0.6.6, 0.6.5, 0.6.4 & 0.6.3 - 26-02-2014 IR222 - Jason Madigan
+---------------------------------------------------
+* 6059 - Verify service permissions on Service Apps. Thanks NPM.
+
+Release 0.6.(3)-appforms - 25-02-2014 IR221 - Martin Murphy
 ---------------------------------------------------
 * 6160 - Appforms: update js-sdk/mbaas to send deviceID in config request
 
