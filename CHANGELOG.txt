@@ -5,12 +5,13 @@ Release 0.6.8 - 19-03-2014 IR223 - Niall Donnelly
 ---------------------------------------------------
 * 6397 - Appforms: Re-factor forms api to use appClientId
 
-Release 0.6.7 - 25-02-2014 IR221 - Martin Murphy
----------------------------------------------------
-* 6160 - Appforms: update js-sdk/mbaas to send deviceID in config request
 Release 0.6.6, 0.6.5, 0.6.4 & 0.6.3 - 26-02-2014 IR222 - Jason Madigan
 ---------------------------------------------------
 * 6059 - Verify service permissions on Service Apps. Thanks NPM.
+
+Release 0.6.(3)-appforms - 25-02-2014 IR221 - Martin Murphy
+---------------------------------------------------
+* 6160 - Appforms: update js-sdk/mbaas to send deviceID in config request
 
 Release 0.6.2 - 05-02-2014 IR220 - Damian Beresford
 ---------------------------------------------------
