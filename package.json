@@ -11,7 +11,7 @@
     "fh-connect" : "1.8.6",
     "fh-reportingclient" : "*",
     "underscore" : "1.5.1",
-    "fh-api-test" : "*",
+    "fh-api" : "*",
 	  "request" : "2.25.0",
 	  "async":"0.2.9",
     "cors": "2.1.0"

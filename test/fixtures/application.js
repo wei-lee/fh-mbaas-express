@@ -1,4 +1,4 @@
-$fh = require('fh-api-test');
+$fh = require('fh-api');
 var webapp = require('fh-webapp');
 var express = require('express');
 var mainjs = require('main.js');
