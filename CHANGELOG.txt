@@ -1,6 +1,10 @@
 ----------------------------------------------------------------------
 Component: fh-webapp
 ----------------------------------------------------------------------
+Release 0.7.0
+---------------------------------------------------
+* 6263 - Expose $fh.sync as an mBaaS service
+
 Release 0.6.8 - 19-03-2014 IR223 - Niall Donnelly
 ---------------------------------------------------
 * 6397 - Appforms: Re-factor forms api to use appClientId
@@ -9,9 +13,6 @@ Release 0.6.7 - 27-03-2014 - IR224 - Wei Li
 ---------------------------------------------------------------------
 * Allow passing extra params when setup cloud functions. For example, bodyParser params.
 
-Release 0.7.0
----------------------------------------------------
-* 6263 - Expose $fh.sync as an mBaaS service
 
 Release 0.6.6, 0.6.5, 0.6.4 & 0.6.3 - 26-02-2014 IR222 - Jason Madigan
 ---------------------------------------------------
