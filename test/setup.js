@@ -9,7 +9,7 @@ exports.setUp = function(finish){
   application = proxyquire('./fixtures/application.js', {
     'fh-webapp': require('../lib/webapp.js'),
     'main.js' : require('./fixtures/main.js'),
-    'fh-api' : require('../test/fixtures/mockAPI.js')
+    'fh-mbaas-api' : require('../test/fixtures/mockAPI.js')
   });
   finish();
 };
