@@ -15,7 +15,7 @@
     "request": "2.25.0",
     "async": "0.2.9",
     "cors": "2.1.0",
-    "fh-amqp-js": "^0.2.1"
+    "fh-amqp-js": "0.2.1"
   },
   "directories": {
     "lib": "lib"
