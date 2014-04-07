@@ -7,14 +7,15 @@
     "test": "listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); ./node_modules/.bin/turbo ./test/accept --setUp ./test/setup.js --tearDown ./test/setup.js"
   },
   "author": "FeedHenry",
-  "dependencies" : {
-    "fh-connect" : "1.8.6",
-    "fh-reportingclient" : "*",
-    "underscore" : "1.5.1",
-    "fh-api" : "*",
-	  "request" : "2.25.0",
-	  "async":"0.2.9",
-    "cors": "2.1.0"
+  "dependencies": {
+    "fh-connect": "1.8.6",
+    "fh-reportingclient": "*",
+    "underscore": "1.5.1",
+    "fh-api": "*",
+    "request": "2.25.0",
+    "async": "0.2.9",
+    "cors": "2.1.0",
+    "fh-amqp-js": "^0.2.1"
   },
   "directories": {
     "lib": "lib"
@@ -22,12 +23,12 @@
   "engines": {
     "node": ">=0.6"
   },
-  "devDependencies" : {
-    "express" : "3.3.4",
-    "proxyquire" : "0.4.1",
-    "cli-color" : "0.2.2",
-    "nock" : "0.22.1",
-    "turbo-test-runner" : "*",
+  "devDependencies": {
+    "express": "3.3.4",
+    "proxyquire": "0.4.1",
+    "cli-color": "0.2.2",
+    "nock": "0.22.1",
+    "turbo-test-runner": "*",
     "istanbul": "0.1.42"
   }
 }
