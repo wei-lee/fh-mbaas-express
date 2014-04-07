@@ -1,6 +1,7 @@
 // Copyright (c) FeedHenry 2011
 var request = require('request');
 var assert = require('assert');
+var util = require('util');
 
 module.exports = {
   'test expected headers exist on cloud endpoint' : function(finish) {
@@ -9,7 +10,7 @@ module.exports = {
       assert.ok(response.headers['content-type'] && response.headers['content-type'].indexOf('application/json')>-1);
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['cache-control'] === "no-cache");
-      assert.ok(headers['x-fh-api-version'].substring(0, 2) === "0.");
+      assert.ok(headers['x-fh-api-version'].substring(0, 2) === "0.", util.inspect(headers));
       finish();
     });
   },

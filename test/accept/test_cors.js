@@ -5,7 +5,7 @@ var assert = require('assert');
 module.exports = {
   'test OPTIONS request responds with the expected headers on cloud call' : function(finish) {
     request({ method: 'OPTIONS', url : process.env.FH_TEST_HOSTNAME + '/cloud/echo' }, function(err, response, body){
-      assert.ok(!err);
+      assert.ok(!err, err);
       var headers = response.headers;
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['access-control-allow-headers'] === "Origin, X-Request-With, Content-Type, x-fh-auth-app, x-fh-auth-user");
