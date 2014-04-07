@@ -1,6 +1,11 @@
 ----------------------------------------------------------------------
 Component: fh-webapp
 ----------------------------------------------------------------------
+
+Release 0.6.8 - 7-04-2014 - IR225 - Damian Beresford
+---------------------------------------------------------------------
+* 6662 - Errors not getting reported in Events & Alerts section
+
 Release 0.6.7 - 27-03-2014 - IR224 - Wei Li
 ---------------------------------------------------------------------
 * Allow passing extra params when setup cloud functions. For example, bodyParser params.
