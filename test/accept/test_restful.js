@@ -10,7 +10,7 @@ module.exports = {
       assert.ok(response.headers['content-type'] && response.headers['content-type'].indexOf('application/json')>-1);
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['cache-control'] === "no-cache");
-      assert.ok(headers['x-fh-api-version'].substring(0, 2) === "0.", util.inspect(headers));
+      assert.ok(headers['x-fh-api-version'], util.inspect(headers));
       finish();
     });
   },
