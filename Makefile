@@ -1,4 +1,4 @@
-PACKAGE = fh-webapp
+PACKAGE = fh-mbaas-express
 #
 # Note: Get the Major/Release/Hotfix numbers from package.json.
 # TODO: should really try use a JSON command line tool to do this,
