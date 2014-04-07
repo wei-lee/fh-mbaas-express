@@ -1,8 +1,9 @@
 // Copyright (c) FeedHenry 2011
 var request = require('request');
+var assert = require('assert');
 
 module.exports = {
-  'test hello world with params' : function(test, assert) {
+  'test hello world with params' : function(finish) {
     request.post(process.env.FH_TEST_HOSTNAME + '/cloud/helloWorld/', {
       json: {'name': 'fred'},
       headers : {
@@ -11,7 +12,7 @@ module.exports = {
     }, function(err, response, body){
       assert.ok(response.statusCode === 200);
       assert.equal(body, 'well fred');
-      test.finish();
+      finish();
     });
   }
 };

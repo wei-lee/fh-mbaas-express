@@ -7,4 +7,5 @@ module.exports = (function(){
 	process.env.FH_MILLICORE = "testing.feedhenry.me";
 	process.env.FH_ENV = "dev";
   process.env.FH_MILLICORE_PROTOCOL = "https";
+  process.env.FH_DOMAIN_DB_CONN_URL = "mongodb://somemongoconnection";
 })();
