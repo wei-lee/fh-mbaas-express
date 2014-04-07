@@ -6,6 +6,24 @@ Release 0.7.1 - 7-04-2014 - IR225 - Damian Beresford
 ----------------------------------------------------
 * 6662 - Errors not getting reported in Events & Alerts section
 
+NOTES:
+
+There is improved error handling now in fh-webapp. Specifically, when your App crashes, this message appears as a Notification in the FeedHenry Studio. In order to use the new fh-webapp error handler, you need to add the following in your application.js:
+
+app.use(webapp.errorHandler());
+
+This needs to be the last middleware you use with your App, so probably best to put this at the end of application.js, e.g.
+
+```
+...
+app.use(webapp.errorHandler());
+
+var port = process.env.FH_PORT || process.env.VCAP_APP_PORT || 8001;
+module.exports = app.listen(port, function(){
+  console.log("App started at: " + new Date() + " on port: " + port);
+});
+```
+
 Release 0.7.0
 ---------------------------------------------------
 * 6263 - Expose $fh.sync as an mBaaS service
