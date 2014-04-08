@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-express",
-  "version": "3.0.0-beta1",
+  "version": "3.0.0-beta2",
   "description": "FeedHenry MBAAS Express routes",
   "main": "lib/webapp.js",
   "scripts": {
