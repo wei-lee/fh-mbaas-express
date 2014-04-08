@@ -25,5 +25,31 @@ module.exports = {
     "completeSubmission" : function(params, cb){
       return cb(undefined, {"status" : "ok", called: "completeSubmission", params: params});
     }
+  },
+  "stats": {
+    "timing": function(){
+      console.log("Called Mock Timing");
+    }
+  },
+  "db": function(params, callback){
+    console.log("Called db: ", params);
+    var dbReplies = {
+      list : function(){
+        return { count: 1,
+          list:
+            [ { type: 'myFirstEntity',
+              guid: '520269c9891b400e59000002',
+              fields:
+              { firstName: 'Joe',
+                lastName: 'Bloggs',
+                address1: '22 Blogger Lane',
+                address2: 'Bloggsville',
+                country: 'Bloggland',
+                phone: '555-123456' } }
+            ]
+        };
+      }
+    };
+    if(callback) callback(undefined, dbReplies.list());
   }
 }

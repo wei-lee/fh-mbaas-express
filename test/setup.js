@@ -7,7 +7,6 @@ exports.setUp = function(finish){
   ditchMock = require('./fixtures/db');
 	authMock = require('./fixtures/authcall.js');
   application = proxyquire('./fixtures/application.js', {
-    'fh-webapp': require('../lib/webapp.js'),
     'main.js' : require('./fixtures/main.js'),
     'fh-mbaas-api' : require('../test/fixtures/mockAPI.js')
   });

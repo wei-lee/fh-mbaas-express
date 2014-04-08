@@ -1,4 +1,4 @@
-var webapp = require('fh-webapp');
+var webapp = require('../../lib/webapp.js');
 var express = require('express');
 var mainjs = require('main.js');
 

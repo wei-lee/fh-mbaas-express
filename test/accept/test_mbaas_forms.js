@@ -141,7 +141,6 @@ module.exports = {
         }
       },
       function(err, res, data){
-        console.log(err, data);
         assert.ok(!err);
         assert.ok(data);
         assert.ok(data.status === "ok");
