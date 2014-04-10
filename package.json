@@ -15,7 +15,7 @@
     "cors": "2.1.0",
     "fh-amqp-js": "0.2.1",
     "fh-reportingclient": "0.2.2",
-    "fh-mbaas-api": "3.0.0-beta1"
+    "fh-mbaas-api": "3.0.0-beta2"
   },
   "directories": {
     "lib": "lib"
