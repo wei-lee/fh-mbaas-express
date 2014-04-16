@@ -1,3 +1,9 @@
+var fs = require('fs');
+var util = require('util');
+
+var testFileLoc = __dirname + '/test.pdf';
+
+
 
 module.exports = {
   "forms" : {
@@ -24,11 +30,29 @@ module.exports = {
     },
     "completeSubmission" : function(params, cb){
       return cb(undefined, {"status" : "ok", called: "completeSubmission", params: params});
+    },
+    "getSubmissions" : function(params, cb){
+      if(params.submission.submissionId === "submitIdDoesNotExist"){
+        return cb(undefined, {submissions: []});
+      } else {
+        return cb(undefined, {submissions: [{"submissionId": "testSub"}]});
+      }
+    },
+    "getSubmissionFile" : function(params, cb){
+      var stats = fs.statSync(testFileLoc);
+      var statsDetails = stats;
+      var fileStream = fs.createReadStream(testFileLoc);
+      fileStream.pause();
+      return cb(undefined, {
+        stream: fileStream,
+        length: statsDetails.size,
+        type: "application/pdf"
+      });
     }
   },
   "stats": {
     "timing": function(){
-      console.log("Called Mock Timing");
+      //console.log("Called Mock Timing");
     }
   },
   "db": function(params, callback){
