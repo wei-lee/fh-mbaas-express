@@ -1,5 +1,6 @@
 var fs = require('fs');
 var util = require('util');
+var assert = require('assert');
 
 var testFileLoc = __dirname + '/test.pdf';
 
@@ -32,7 +33,8 @@ module.exports = {
       return cb(undefined, {"status" : "ok", called: "completeSubmission", params: params});
     },
     "getSubmission" : function(params, cb){
-      if(params.submission.submissionId === "submitIdDoesNotExist"){
+      assert.ok(params.submissionId, "Expected a submissionId but got none");
+      if(params.submissionId === "submitIdDoesNotExist"){
         return cb(new Error("Does not exist"), {});
       } else {
         return cb(undefined, {_id: "testSubmissionId"});
