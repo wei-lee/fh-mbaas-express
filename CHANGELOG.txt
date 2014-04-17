@@ -2,10 +2,15 @@
 Component: fh-mbaas-express
 ----------------------------------------------------------------------
 
+Release 3.0.0-beta5 - 2014-04-17 - IR225 - Niall Donnelly
+-------------------------------------
+* 6706 get submission for client Api.
+
 Release 3.0.0 - 7-04-2014 - IR225 - Damian Beresford
 ----------------------------------------------------
 * 6662 - Errors not getting reported in Events & Alerts section
 * 6679 - Renaming and versioning for fh-webapp & fh-api
+
 
 NOTES:
 
