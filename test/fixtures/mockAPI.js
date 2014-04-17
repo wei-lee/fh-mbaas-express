@@ -31,11 +31,11 @@ module.exports = {
     "completeSubmission" : function(params, cb){
       return cb(undefined, {"status" : "ok", called: "completeSubmission", params: params});
     },
-    "getSubmissions" : function(params, cb){
+    "getSubmission" : function(params, cb){
       if(params.submission.submissionId === "submitIdDoesNotExist"){
-        return cb(undefined, {submissions: []});
+        return cb(new Error("Does not exist"), {});
       } else {
-        return cb(undefined, {submissions: [{"submissionId": "testSub"}]});
+        return cb(undefined, {_id: "testSubmissionId"});
       }
     },
     "getSubmissionFile" : function(params, cb){

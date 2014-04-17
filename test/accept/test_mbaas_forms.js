@@ -179,7 +179,7 @@ module.exports = {
       function(err, res, data){
         assert.ok(!err);
         assert.ok(data);
-        assert.ok(data.submissionId === "testSub");
+        assert.ok(data._id === "testSubmissionId");
         finish();
       });
   },
@@ -196,8 +196,8 @@ module.exports = {
       },
       function(err, res, data){
         assert.ok(!err);
-        assert.ok(res.statusCode === 404);
-        assert.ok(data.message === "No submission found");
+        assert.ok(res.statusCode === 500);
+        assert.ok(data.message === "Does not exist");
         finish();
       });
   },
@@ -206,7 +206,6 @@ module.exports = {
     console.log("test form call to getSubmissionFile");
 
     writestream.on('pipe', function(src) {
-      console.error('something is piping into the writer');
       finish();
     });
 
