@@ -13,3 +13,4 @@ def-debug.log
 ._.DS_Store
 .idea/
 cov-accept/
+coverage/

@@ -16,12 +16,20 @@ DIST_DIR  = ./dist
 OUTPUT_DIR  = ./output
 MODULES = ./node_modules
 COV_DIR = ./lib-cov
+COVERAGE = ./coverage
 RELEASE_FILE = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER).tar.gz
 RELEASE_DIR = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER)
 
 all: clean npm_deps test
 
 test: test_unit_cov test_accept_cov
+
+coverage: test_unit_cov test_accept_cov
+	rm -rf $(COVERAGE)
+	./node_modules/.bin/istanbul report
+	./node_modules/.bin/istanbul report --report cobertura
+	@echo "See html coverage at: `pwd`/coverage/lcov-report/index.html"
+
 
 test_accept: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/accept
@@ -51,6 +59,6 @@ dist: npm_deps
 	sed -i -e s/BUILD-NUMBER/$(BUILD_NUMBER)/ $(OUTPUT_DIR)/$(RELEASE_DIR)/package.json
 	tar -czf $(DIST_DIR)/$(RELEASE_FILE) -C $(OUTPUT_DIR) $(RELEASE_DIR)
 clean:
-	rm -rf $(DIST_DIR) $(OUTPUT_DIR) $(MODULES) $(COV_DIR)
+	rm -rf $(DIST_DIR) $(OUTPUT_DIR) $(MODULES) $(COV_DIR) $(COVERAGE)
 
 .PHONY: test dist clean npm_deps
