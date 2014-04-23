@@ -5,6 +5,8 @@ var mainjs = require('main.js');
 var app = express();
 app.use('/sys', webapp.sys(mainjs));
 app.use('/mbaas', webapp.mbaas);
+
+app.use(webapp.fhmiddleware());
 app.use('/cloud', webapp.cloud(mainjs));
 
 // You can define custom URL handlers here, like this one:

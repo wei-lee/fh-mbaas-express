@@ -3,9 +3,6 @@
   "version": "3.0.0-beta2",
   "description": "FeedHenry MBAAS Express routes",
   "main": "lib/webapp.js",
-  "scripts": {
-    "test": "listing=$(ls -1 test/test_*); teststorun=$(echo $listing | tr -d '\n'); ./node_modules/.bin/turbo ./test/accept --setUp ./test/setup.js --tearDown ./test/setup.js"
-  },
   "author": "FeedHenry",
   "dependencies": {
     "underscore": "1.5.1",
@@ -23,7 +20,7 @@
     "lib": "lib"
   },
   "engines": {
-    "node": ">=0.8"
+    "node": ">=0.10"
   },
   "devDependencies": {
     "proxyquire": "0.4.1",
