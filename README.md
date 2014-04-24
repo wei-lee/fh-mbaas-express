@@ -4,27 +4,54 @@ It also hosts some system-level piping to help the studio determine if an app is
 #Usage
 Add the following to the 'dependencies' section of your **'cloud/package.json'** file:
 
-    "fh-webapp" : "*",
-    "fh-api" : "*",
-    "express" : "3.3.4"
+    "fh-mbaas-express" : "~3.0.0",
+    "fh-mbaas-api" : ~3.0.0"",
+    "express" : "~4.0.0"
+
 Add a file to your FeedHenry app **'cloud/application.js'**, with the following contents:
 
-    var webapp = require('fh-webapp');
-    var express = require('express');
-    $fh = require('fh-api');
-    var mainjs = require('main.js');
+```javascript
+var mbaas = require('fh-mbaas-express');
+var express = require('express');
+var fs = require('fs');
+var mainjs;
 
-    var app = express();
-    app.use('/sys', webapp.sys(mainjs));
-    app.use('/mbaas', webapp.mbaas);
-    app.use('/cloud', webapp.cloud(mainjs));
+if (fs.existsSync('./lib/main.js')) {
+  mainjs = require('./lib/main.js');
+}
 
-    // You can define custom URL handlers here, like this one:
-    app.use('/', function(req, res){
-      res.end('Your Cloud App is Running');
-    });
+// Securable endpoints: list the endpoints which you want to make securable here
+var securableEndpoints = ['hello'];
 
-    module.exports = app.listen(process.env.FH_PORT || process.env.VCAP_APP_PORT || 8001);
+var app = express();
+
+// Note: the order which we add middleware to Express here is important!
+app.use('/sys', mbaas.sys(mainjs, securableEndpoints));
+app.use('/mbaas', mbaas.mbaas);
+
+// Note: important that this is added just before your own Routes
+app.use(mbaas.fhmiddleware());
+
+// Backward compatability - if main.js exists, mount it on /cloud, otherwise mount hello.js
+if (mainjs) {
+  app.use('/cloud', mbaas.cloud(mainjs));
+} else {
+  app.use('/cloud', require('./lib/hello.js')());
+}
+
+// You can define custom URL handlers here, like this one:
+app.use('/', function(req, res){
+  res.end('Your Cloud App is Running');
+});
+
+// Important that this is last!
+app.use(mbaas.errorHandler());
+
+var port = process.env.FH_PORT || process.env.VCAP_APP_PORT || 8001;
+var server = app.listen(port, function(){
+  console.log("App started at: " + new Date() + " on port: " + port);
+});
+```
 
 ##Customising & Extending
 The above application.js is just an [Expressjs application](http://expressjs.com/api.html) - it's easily extensible. 
@@ -34,6 +61,9 @@ You can create custom API handlers in the Express format by doing:
     app.use('/myapi', function(req, res){
       res.end('My custom response');
     });
+
+See [Express Router](http://expressjs.com/4x/api.html#router) for more information.
+
 ###Serving Static Files
 Express has a built-in static file server. In this example, we host files under the public directory:  
     
@@ -59,19 +89,27 @@ Result as passed to the callback function of the exported function - see 'Writin
 
 
 ###Writing API functions
-The cloud namespace exposes the public functions of a javascript file of your choice (traditionally 'main.js') as public endpoints under the cloud URL namespace.
-**:someFunction** is the name of a function attached to the 'exports' object. These functions take two paramaters - the first is the data sent in the POST, the second is the callback function to call.
 
-    exports.getConfig = function (params, callback){
-      // Do some work here, then return data
-      var err = false;
+We recommend adding your own routes to `/cloud`, see `lib/hello.js` in the `hello world` example. . Also see [Express Router](http://expressjs.com/4x/api.html#router) for more information.
 
-      // Check if some error condition happened first
-      if (err){
-        return callback(err);
-      }
-      return callback(null, res);
-    }
+```javascript
+function helloRoute() {
+  var hello = new express.Router();
+  hello.use(bodyParser());
+
+  // GET REST endpoint - query params may or may not be populated
+  hello.get('/hello', function(req, res) {
+    var world = req.query ? req.query.hello : 'World';
+
+    res.writeHead(200, {"Content-Type":"application/json"});
+    res.end(JSON.stringify({msg: 'Hello ' + world}));
+  });
+  return hello;
+}
+
+```
+
+
 ##mBaaS
 ###POST /mbaas/db
 **Authentication** : Required - App API key goes here.
