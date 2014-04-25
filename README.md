@@ -1,7 +1,9 @@
-fh-webapp is part one of a two-part replacement for fh-nodeapp. Webapp is the "'"hostapp" part of fh-nodeapp, that which makes public endpoints from exported functions in cloud/main.js.
-It also hosts some system-level piping to help the studio determine if an app is online, the endpoints it exposes), and introduces a new namespace - /mbaas.
+fh-mbaas-express
+================
 
-#Usage
+fh-mbaas-express is the FeedHenry MBaaS running on top of [Express](http://expressjs.com/).
+
+# Usage
 Add the following to the 'dependencies' section of your **'cloud/package.json'** file:
 
     "fh-mbaas-express" : "~3.0.0",
@@ -13,12 +15,6 @@ Add a file to your FeedHenry app **'cloud/application.js'**, with the following 
 ```javascript
 var mbaas = require('fh-mbaas-express');
 var express = require('express');
-var fs = require('fs');
-var mainjs;
-
-if (fs.existsSync('./lib/main.js')) {
-  mainjs = require('./lib/main.js');
-}
 
 // Securable endpoints: list the endpoints which you want to make securable here
 var securableEndpoints = ['hello'];
@@ -31,13 +27,8 @@ app.use('/mbaas', mbaas.mbaas);
 
 // Note: important that this is added just before your own Routes
 app.use(mbaas.fhmiddleware());
+app.use('/cloud', require('./lib/hello.js')());
 
-// Backward compatability - if main.js exists, mount it on /cloud, otherwise mount hello.js
-if (mainjs) {
-  app.use('/cloud', mbaas.cloud(mainjs));
-} else {
-  app.use('/cloud', require('./lib/hello.js')());
-}
 
 // You can define custom URL handlers here, like this one:
 app.use('/', function(req, res){
@@ -53,9 +44,10 @@ var server = app.listen(port, function(){
 });
 ```
 
-##Customising & Extending
-The above application.js is just an [Expressjs application](http://expressjs.com/api.html) - it's easily extensible. 
-###Custom APIs
+## Customising & Extending
+The above application.js is just an [Expressjs application](http://expressjs.com/api.html) - it's easily extensible.
+
+### Custom APIs
 You can create custom API handlers in the Express format by doing:
 
     app.use('/myapi', function(req, res){
@@ -64,16 +56,16 @@ You can create custom API handlers in the Express format by doing:
 
 See [Express Router](http://expressjs.com/4x/api.html#router) for more information.
 
-###Serving Static Files
+### Serving Static Files
 Express has a built-in static file server. In this example, we host files under the public directory:  
     
     app.use(express.static(__dirname + '/public'));
 
 
-#REST API	
+# REST API	
 
 
-##Cloud
+## Cloud
 
 ###(POST | GET | PUT) /cloud/:someFunction
 **Authentication** : Optional - can be enabled globally or on a per-endpoint basis under "Endpoints" section of the studio.
@@ -179,3 +171,18 @@ None
 
 ###Response:
     0.1.0
+
+# Backward compatability with main.js
+
+If you want to use the older fh-nodeapp/fh-webapp style main.js, you need to change the /cloud endpoint in your application.js as follows:
+
+```
+var mainjs = require('./lib/main.js');
+app.use('/cloud', mbaas.cloud(mainjs));
+```
+
+Additionally, you need to ammend the call to `sys` for secure endpoints:
+
+```
+app.use('/sys', mbaas.sys(securableEndpoints, mainjs));
+```
