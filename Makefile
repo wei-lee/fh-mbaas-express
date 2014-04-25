@@ -22,7 +22,7 @@ RELEASE_DIR = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER)
 
 all: clean npm_deps test
 
-test: test_unit_cov test_accept_cov
+test: coverage
 
 coverage: test_unit_cov test_accept_cov
 	rm -rf $(COVERAGE)
@@ -38,7 +38,7 @@ test_unit: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/turbo ./test/unit
 
 test_unit_cov: npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-accept ./node_modules/.bin/turbo -- ./test/unit
+	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-unit ./node_modules/.bin/turbo -- ./test/unit
 
 test_accept_cov: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-accept ./node_modules/.bin/turbo -- --setUp ./test/setup.js --tearDown ./test/setup.js ./test/accept
@@ -59,6 +59,6 @@ dist: npm_deps
 	sed -i -e s/BUILD-NUMBER/$(BUILD_NUMBER)/ $(OUTPUT_DIR)/$(RELEASE_DIR)/package.json
 	tar -czf $(DIST_DIR)/$(RELEASE_FILE) -C $(OUTPUT_DIR) $(RELEASE_DIR)
 clean:
-	rm -rf $(DIST_DIR) $(OUTPUT_DIR) $(MODULES) $(COV_DIR) $(COVERAGE)
+	rm -rf $(DIST_DIR) $(OUTPUT_DIR) $(MODULES) $(COV_DIR) $(COVERAGE) cov-unit cov-accept
 
 .PHONY: test dist clean npm_deps
