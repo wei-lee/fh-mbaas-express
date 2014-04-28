@@ -1,7 +1,7 @@
 {
   "name": "fh-mbaas-express",
-  "version": "3.0.0-beta2",
-  "description": "FeedHenry MBAAS Express routes",
+  "version": "3.0.0-beta3",
+  "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
   "author": "FeedHenry",
   "dependencies": {

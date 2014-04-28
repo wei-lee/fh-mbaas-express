@@ -2,6 +2,10 @@
 Component: fh-mbaas-express
 ----------------------------------------------------------------------
 
+Release 3.0.0-beta3 - 7-04-2014 - IR225 - Damian Beresford
+----------------------------------------------------
+* 6509 - Restification of fh-webapp
+
 Release 3.0.0 - 7-04-2014 - IR225 - Damian Beresford
 ----------------------------------------------------
 * 6662 - Errors not getting reported in Events & Alerts section
