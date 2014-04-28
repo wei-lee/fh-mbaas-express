@@ -22,7 +22,7 @@ RELEASE_DIR = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER)
 
 all: clean npm_deps test
 
-test: coverage
+test: test_unit test_accept
 
 coverage: test_unit_cov test_accept_cov
 	rm -rf $(COVERAGE)
