@@ -164,5 +164,60 @@ module.exports = {
         assert.ok(data.status === "ok");
         finish();
       });
+  },
+  "test form call to getSubmission" : function(finish){
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/submission/submitId123456",
+      {
+        json:{
+          "__fh":{"appkey":"testkey","userkey":"akey"}
+        },
+        headers : {
+          'Content-Type' : 'application/json',
+          "x-fh-auth-app": "testkey"
+        }
+      },
+      function(err, res, data){
+        assert.ok(!err);
+        assert.ok(data);
+        assert.ok(data._id === "testSubmissionId");
+        finish();
+      });
+  },
+  "test form call to getSubmission Does Not Exist" : function(finish){
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/submission/submitIdDoesNotExist",
+      {
+        json:{
+          "__fh":{"appkey":"testkey","userkey":"akey"}
+        },
+        headers : {
+          'Content-Type' : 'application/json',
+          "x-fh-auth-app": "testkey"
+        }
+      },
+      function(err, res, data){
+        assert.ok(!err);
+        assert.ok(res.statusCode === 500);
+        assert.ok(data.message === "Does not exist");
+        finish();
+      });
+  },
+  "test form call to getSubmissionFile" : function(finish){
+    var writestream = fs.createWriteStream(__dirname + '/../fixtures/testOutput3.pdf');
+    console.log("test form call to getSubmissionFile");
+
+    writestream.on('pipe', function(src) {
+      finish();
+    });
+
+    request.get(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/submission/submitId123456/file/fileId",
+      {
+        json:{
+          "__fh":{"appkey":"testkey","userkey":"akey"}
+        },
+        headers : {
+          'Content-Type' : 'application/json',
+          "x-fh-auth-app": "testkey"
+        }
+      }).pipe(writestream);
   }
 }
