@@ -31,6 +31,21 @@ module.exports = {
       finish();
     });
   },
+  "test auth call with api key header" : function(finish){
+    request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
+    {
+      json : {},
+      headers : {
+        'Content-Type' : 'application/json',
+        'X-FH-appkey': 'testkey'
+      }
+    }, function(err, response, data){
+      assert.ok(!err);
+      assert.ok(response.statusCode === 200);
+      assert.notEqual(data, null);
+      finish();
+    });
+  },
   "test auth fails with wrong header key": function(finish){
     request.post(process.env.FH_TEST_HOSTNAME + '/cloud/doAuthedCall/',
     {

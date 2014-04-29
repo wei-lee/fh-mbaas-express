@@ -13,7 +13,13 @@ exports.it_should_test_middleware = function(callback) {
 
   var fhm = proxyquire('fh-middleware.js', {"./cloud/fh-reports.js": mockreports}).fhmiddleware();
   var req = {
-    url: '/test/foo'
+    url: '/test/foo',
+    headers: {
+      'X-FH-appid': 'testappid',
+      'X-FH-appkey':'testappkey',
+      'X-FH-projectid': 'testprojectid',
+      'X-FH-connectiontag': 'testconnectiontag'
+    }
   };
 
   // create fake response
