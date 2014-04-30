@@ -32,10 +32,10 @@ coverage: test_unit_cov test_accept_cov
 
 
 test_accept: npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/accept/
+	env NODE_PATH=./lib ./node_modules/.bin/turbo --setUp ./test/setup.js --tearDown ./test/setup.js ./test/accept
 
 test_unit: npm_deps
-	env NODE_PATH=./lib ./node_modules/.bin/turbo ./test/unit/
+	env NODE_PATH=./lib ./node_modules/.bin/turbo ./test/unit
 
 test_unit_cov: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-unit ./node_modules/.bin/turbo -- ./test/unit
