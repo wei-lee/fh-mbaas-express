@@ -136,10 +136,11 @@ module.exports = {
     form.append('testFile', fs.createReadStream(__dirname + '/../fixtures/test.pdf'));
     console.log("Submitting Form File");
 
-    form.submit(process.env.FH_TEST_HOSTNAME + "/forms/testapp1234/submitfile1234/submitfilefield1234/fileId1234/submitFormFile", function(err, res) {
+    form.submit(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/testapp1234/submitfile1234/submitfilefield1234/fileId1234/submitFormFile", function(err, res) {
       assert.ok(!err, "Unexpected error occurred for submitFormFile" + err);
       assert.ok(res, "Expected a result. Got none");
       console.log("Submitting Form File Finished");
+      res.resume();
       finish();
     });
   },

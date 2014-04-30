@@ -24,11 +24,12 @@ module.exports = {
       return cb(undefined, {"status" : "ok", called: "submitFormData", params: params});
     },
     "submitFormFile" : function(params, cb){
+      assert.ok(params, "Expected params to submitFormFile");
+      assert.ok(params.submission, "Expected submission in params");
+      assert.ok(params.submission.fileStream, "Expected a file stream path");
+      assert.ok(params.submission.fileName, "Expected a file name");
       console.log("mock params: ", JSON.stringify(params));
       return cb(undefined, {"status" : "ok", called: "submitFormFile"});
-    },
-    "submitFormFile" : function(params, cb){
-      return cb(undefined, {"status" : "ok", called: "submitFormFile", params: params});
     },
     "getSubmissionStatus" : function(params, cb){
       return cb(undefined, {"status" : "ok", called: "getSubmissionStatus", params: params});
