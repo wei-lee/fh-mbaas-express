@@ -28,6 +28,7 @@
     "cli-color": "0.2.2",
     "nock": "0.22.1",
     "turbo-test-runner": "~0.3",
-    "istanbul": "0.1.42"
+    "istanbul": "0.1.42",
+    "form-data": "0.1.2"
   }
 }

@@ -3,6 +3,7 @@ var request = require('request');
 var nock = require('nock');
 var fs = require('fs');
 var util = require('util');
+var FormData = require('form-data');
 
 module.exports = {
   "setUp" : function(finish){
@@ -128,6 +129,19 @@ module.exports = {
         assert.ok(data.status === "ok");
         finish();
       });
+  },
+  "test form call to submitFormFile" : function(finish){
+    var form = new FormData();
+
+    form.append('testFile', fs.createReadStream(__dirname + '/../fixtures/test.pdf'));
+    console.log("Submitting Form File");
+
+    form.submit(process.env.FH_TEST_HOSTNAME + "/forms/testapp1234/submitfile1234/submitfilefield1234/fileId1234/submitFormFile", function(err, res) {
+      assert.ok(!err, "Unexpected error occurred for submitFormFile" + err);
+      assert.ok(res, "Expected a result. Got none");
+      console.log("Submitting Form File Finished");
+      finish();
+    });
   },
   "test form call to completeFormSubmission" : function(finish){
     request.post(process.env.FH_TEST_HOSTNAME + "/mbaas/forms/appid/submitId123456/completeSubmission",

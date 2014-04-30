@@ -24,6 +24,10 @@ module.exports = {
       return cb(undefined, {"status" : "ok", called: "submitFormData", params: params});
     },
     "submitFormFile" : function(params, cb){
+      console.log("mock params: ", JSON.stringify(params));
+      return cb(undefined, {"status" : "ok", called: "submitFormFile"});
+    },
+    "submitFormFile" : function(params, cb){
       return cb(undefined, {"status" : "ok", called: "submitFormFile", params: params});
     },
     "getSubmissionStatus" : function(params, cb){
