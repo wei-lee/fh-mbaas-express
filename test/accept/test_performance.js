@@ -17,6 +17,9 @@ module.exports = {
     exec('ab -c 10 -n 1000 ' + process.env.FH_TEST_HOSTNAME + '/cloud/d100kb',
     function (error, stdout, stderr) {
       var rex = /Failed requests:\s.+0/;
+      if(error){
+        console.log(error);
+      }
       assert.ok(!error);
       assert.ok(stdout);
       assert.ok(rex.test(stdout));

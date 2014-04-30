@@ -10,7 +10,7 @@ exports.it_should_test_message = function(finish) {
   process.env.FH_AMQP_VHOST = '/fhevents';
 
   var message = proxyquire('common/message.js', {})();
-  console.log("message: " + util.inspect(message))
+  console.log("message: " + util.inspect(message));
   var mgr = message.getAmqpManager();
   finish();
 };
