@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-express",
-  "version": "3.0.0-beta10",
+  "version": "3.0.0-beta11",
   "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
   "author": "FeedHenry",
@@ -11,7 +11,7 @@
     "cors": "2.1.0",
     "fh-amqp-js": "0.2.1",
     "fh-reportingclient": "0.2.2",
-    "fh-mbaas-api": "3.0.0-beta6",
+    "fh-mbaas-api": "3.0.0-beta7",
     "express": "~4.0.0",
     "body-parser": "~1.0.2",
     "type-is": "~1.1.0",
