@@ -2,6 +2,10 @@
 Component: fh-mbaas-express
 ----------------------------------------------------------------------
 
+Release 3.0.0-beta16 - 05-06-2014 - IR229 - Cian Clarke
+------------------------------------------------------------
+* 7087, 7086 - Add import & export support to mbaas-express, support passing files params
+
 Release 3.0.0-beta13 - 27-05-2014 - IR228 - Cian Clarke
 ------------------------------------------------------------
 bump fh-mbaas-api version
@@ -110,10 +114,8 @@ Release 0.1.0 (IR209)
 
 CHANGES
  * Ticket 4470 Split fh-nodeapp into fh-webapp and fh-apis
- 
-NOTES 
+
+NOTES
  * <none>
 
 ---
-
-
