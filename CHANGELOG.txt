@@ -6,6 +6,15 @@ Release 3.1.0 - 2014-06-03 IR229 - John Frizelle
 ----------------------------------------------------------
 * #7364 - fh-mbaas-express is now a dependency of fh-mbaas-api, rather than the other way around.
 
+Release 3.0.0-beta17 - 05-06-2014 - IR229 - Cian Clarke
+------------------------------------------------------------
+* Bump fh-mbaas-api version
+
+Release 3.0.0-beta16 - 05-06-2014 - IR229 - Cian Clarke
+------------------------------------------------------------
+* 7087, 7086 - Add import & export support to mbaas-express, support passing files params
+>>>>>>> master
+
 Release 3.0.0-beta13 - 27-05-2014 - IR228 - Cian Clarke
 ------------------------------------------------------------
 bump fh-mbaas-api version
@@ -114,10 +123,8 @@ Release 0.1.0 (IR209)
 
 CHANGES
  * Ticket 4470 Split fh-nodeapp into fh-webapp and fh-apis
- 
-NOTES 
+
+NOTES
  * <none>
 
 ---
-
-
