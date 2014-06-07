@@ -2,6 +2,10 @@
 Component: fh-mbaas-express
 ----------------------------------------------------------------------
 
+Release 3.1.0 - 2014-06-03 IR229 - John Frizelle
+----------------------------------------------------------
+* #7364 - fh-mbaas-express is now a dependency of fh-mbaas-api, rather than the other way around.
+
 Release 3.0.0-beta13 - 27-05-2014 - IR228 - Cian Clarke
 ------------------------------------------------------------
 bump fh-mbaas-api version
