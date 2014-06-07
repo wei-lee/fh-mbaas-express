@@ -19,7 +19,10 @@ exports.it_should_test_middleware = function(callback) {
     }
   };
 
-  var fhm = proxyquire('fh-middleware.js', {"./cloud/fh-reports.js": mockreports}).fhmiddleware(require('../fixtures/mockAPI.js'));
+  var fhmiddleware = proxyquire('fh-middleware.js', {"./cloud/fh-reports.js": mockreports});
+  fhmiddleware.setFhApi(require('../fixtures/mockAPI.js'));
+  var fhm = fhmiddleware.fhmiddleware();
+
   var req = {
     url: '/test/foo',
     headers: {

@@ -59,7 +59,7 @@ var api = {
   },
   "stats": {
     "timing": function () {
-      console.log("Called Mock Timing");
+      //console.log("Called Mock Timing");
     }
   },
   "db": function (params, callback) {
