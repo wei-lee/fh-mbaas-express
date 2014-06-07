@@ -11,14 +11,6 @@ exports.it_should_test_middleware = function(callback) {
     }, '@noCallThru': true
   };
 
-  var mockFhMbaasApi = {
-    stats : {
-      timing: function() {
-        console.log('Mock stats timing endpoint called');
-      }
-    }
-  };
-
   var fhmiddleware = proxyquire('fh-middleware.js', {"./cloud/fh-reports.js": mockreports});
   fhmiddleware.setFhApi(require('../fixtures/mockAPI.js'));
   var fhm = fhmiddleware.fhmiddleware();
