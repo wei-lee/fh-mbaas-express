@@ -1,50 +1,50 @@
 #Component: fh-mbaas-express
 
 
-##Release 3.1.0 - 2014-06-03 IR229 - John Frizelle
+## 3.1.0 - 2014-06-03 IR229 - John Frizelle
 
 * 7364 - fh-mbaas-express is now a dependency of fh-mbaas-api, rather than the other way around.
 
-##Release 3.0.0-beta17 - 05-06-2014 - IR229 - Cian Clarke
+## 3.0.0-beta17 - 05-06-2014 - IR229 - Cian Clarke
 
 * Bump fh-mbaas-api version
 
-##Release 3.0.0-beta16 - 05-06-2014 - IR229 - Cian Clarke
+## 3.0.0-beta16 - 05-06-2014 - IR229 - Cian Clarke
 
 * 7087, 7086 - Add import & export support to mbaas-express, support passing files params
 
-##Release 3.0.0-beta13 - 27-05-2014 - IR228 - Cian Clarke
+## 3.0.0-beta13 - 27-05-2014 - IR228 - Cian Clarke
 
 * bump fh-mbaas-api version
 
-##Release 3.0.0-beta12 - 20-05-2014 - IR226 niall donnelly
+## 3.0.0-beta12 - 20-05-2014 - IR226 niall donnelly
 
 * bump fh-mbaas-api version
 
-##Release 3.0.0-beta11 - 01-05-2014 - IR226 - Cbrookes
+## 3.0.0-beta11 - 01-05-2014 - IR226 - Cbrookes
 
 * bump fh-api
-##Release 3.0.0-beta10 - 30-04-2014 - IR226 - Cbrookes
+## 3.0.0-beta10 - 30-04-2014 - IR226 - Cbrookes
 
 * bump fh-api
 
-##Release 3.0.0-beta9 - 30-04-2014 - IR226 - Niall Donnelly
+## 3.0.0-beta9 - 30-04-2014 - IR226 - Niall Donnelly
 
 * 7036 - Add multipart form reqest support for mbaas
 
-##Release 3.0.0-beta8 - 29-04-2014 - IR226 - Wei Li
+## 3.0.0-beta8 - 29-04-2014 - IR226 - Wei Li
 
 * Parse FH headers
 
-##Release 3.0.0-beta7 - 7-04-2014 - IR225 - Damian Beresford
+## 3.0.0-beta7 - 7-04-2014 - IR225 - Damian Beresford
 
 * 6509 - Restification of fh-webapp
 
-##Release 3.0.0-beta5 - 2014-04-17 - IR225 - Niall Donnelly
+## 3.0.0-beta5 - 2014-04-17 - IR225 - Niall Donnelly
 
 * 6706 get submission for client Api.
 
-##Release 3.0.0 - 7-04-2014 - IR225 - Damian Beresford
+## 3.0.0 - 7-04-2014 - IR225 - Damian Beresford
 
 * 6662 - Errors not getting reported in Events & Alerts section
 * 6679 - Renaming and versioning for fh-webapp & fh-api
@@ -72,50 +72,50 @@ This needs to be the last middleware you use with your App, so probably best to 
       });
 
 
-##Release 0.7.0
+## 0.7.0
 
 * 6263 - Expose $fh.sync as an mBaaS service
 
-##Release 0.6.8 - 19-03-2014 IR223 - Niall Donnelly
+## 0.6.8 - 19-03-2014 IR223 - Niall Donnelly
 
 * 6397 - Appforms: Re-factor forms api to use appClientId
 
-##Release 0.6.7 - 27-03-2014 - IR224 - Wei Li
+## 0.6.7 - 27-03-2014 - IR224 - Wei Li
 
 * Allow passing extra params when setup cloud functions. For example, bodyParser params.
 
 
-##Release 0.6.6, 0.6.5, 0.6.4 & 0.6.3 - 26-02-2014 IR222 - Jason Madigan
+## 0.6.6, 0.6.5, 0.6.4 & 0.6.3 - 26-02-2014 IR222 - Jason Madigan
 
 * 6059 - Verify service permissions on Service Apps. Thanks NPM.
 
-##Release 0.6.(3)-appforms - 25-02-2014 IR221 - Martin Murphy
+## 0.6.(3)-appforms - 25-02-2014 IR221 - Martin Murphy
 
 * 6160 - Appforms: update js-sdk/mbaas to send deviceID in config request
 
-##Release 0.6.2 - 05-02-2014 IR220 - Damian Beresford
+## 0.6.2 - 05-02-2014 IR220 - Damian Beresford
 
 * 5897 - fh-webapp does not set the process title
 
-##Release 0.6.1 - 20-01-2014 IR219 - Damian Beresford
+## 0.6.1 - 20-01-2014 IR219 - Damian Beresford
 
 * 5697 - Zendesk 2989: Aer Lingus Audit - Update Required (cors whitelist support)
 
-##Release 0.6.0 - 03-01-2014 IR218 - John Frizelle
+## 0.6.0 - 03-01-2014 IR218 - John Frizelle
 
 * 5455 - Explicitly set character encoding to utf-8
 
 
-##Release 0.5.0 (IR210)
+## 0.5.0 (IR210)
 CHANGES
  * minor bug fix for local dev when using local db
 
-##Release 0.2.0 (IR210)
+## 0.2.0 (IR210)
 
 CHANGES
  * 4568 and authorisation calls on mbass db endpoints
 
-##Release 0.1.0 (IR209)
+## 0.1.0 (IR209)
 
 CHANGES
  * Ticket 4470 Split fh-nodeapp into fh-webapp and fh-apis
