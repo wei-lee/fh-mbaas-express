@@ -2,6 +2,10 @@
 Component: fh-mbaas-express
 ----------------------------------------------------------------------
 
+Release 3.0.3 - 17-06-2014 - IR230 - Niall Donnelly
+------------------------------------------------------------
+* 7459 - Added increased limits to bodyparser.
+
 Release 3.0.0-beta17, 3.0.1, 3.0.2 - 05-06-2014 - IR229 - Cian Clarke
 ------------------------------------------------------------
 * Bump fh-mbaas-api version

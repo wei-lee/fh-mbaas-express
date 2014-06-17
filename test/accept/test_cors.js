@@ -10,7 +10,7 @@ module.exports = {
       var headers = response.headers;
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['access-control-allow-headers'] === "Origin, X-Request-With, Content-Type, x-fh-auth-app, x-fh-auth-user", 'Unexpected headers: ' + util.inspect(headers['access-control-allow-headers']));
-      assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE');
+      assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE, PATCH' );
       assert.ok(headers['access-control-allow-credentials'] === "true");
       finish();
     });
@@ -22,7 +22,7 @@ module.exports = {
       console.log(headers);
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['access-control-allow-headers'] === "Origin, X-Request-With, Content-Type, x-fh-auth-app, x-fh-auth-user");
-      assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE');
+      assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE, PATCH');
       assert.ok(headers['access-control-allow-credentials'] === "true");
       finish();
     });
@@ -33,7 +33,7 @@ module.exports = {
       var headers = response.headers;
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['access-control-allow-headers'] === "Origin, X-Request-With, Content-Type, x-fh-auth-app, x-fh-auth-user", 'Unexpexted headers: ' + util.inspect(headers['access-control-allow-headers']));
-      assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE');
+      assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE, PATCH');
       assert.ok(headers['access-control-allow-credentials'] === "true");
       finish();
     });
