@@ -1,6 +1,9 @@
 ----------------------------------------------------------------------
 Component: fh-mbaas-express
 ----------------------------------------------------------------------
+## 3.0.5 - 25-06-2014 - IR230 - Wei Li
+
+* 7500 - Parse client information sent by native SDKs from request headers
 
 ## 3.0.4 - 20-06-2014 - IR230 - Wei Li
 
