@@ -10,7 +10,7 @@ module.exports = {
       var headers = response.headers;
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['access-control-allow-headers'] === "Origin, X-Request-With, Content-Type, x-fh-auth-app, x-fh-auth-user", 'Unexpected headers: ' + util.inspect(headers['access-control-allow-headers']));
-      assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE, PATCH' );
+      assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE, PATCH');
       assert.ok(headers['access-control-allow-credentials'] === "true");
       finish();
     });
@@ -19,7 +19,6 @@ module.exports = {
     request({ method: 'OPTIONS', url : process.env.FH_TEST_HOSTNAME + '/mbaas/db' }, function(err, response, body){
       assert.ok(!err);
       var headers = response.headers;
-      console.log(headers);
       assert.ok(headers['access-control-allow-origin'] === "*");
       assert.ok(headers['access-control-allow-headers'] === "Origin, X-Request-With, Content-Type, x-fh-auth-app, x-fh-auth-user");
       assert.ok(headers['access-control-allow-methods'] === 'POST, GET, OPTIONS, PUT, DELETE, PATCH');
