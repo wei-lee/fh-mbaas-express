@@ -29,5 +29,6 @@
     "turbo-test-runner": "~0.3",
     "istanbul": "0.1.42",
     "form-data": "0.1.2"
-  }
+  },
+  "license": "Copyright (c) 2014 FeedHenry Ltd, All Rights Reserved."
 }
