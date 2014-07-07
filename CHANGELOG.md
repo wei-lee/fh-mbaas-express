@@ -1,6 +1,11 @@
 ----------------------------------------------------------------------
 Component: fh-mbaas-express
 ----------------------------------------------------------------------
+
+## 3.0.6 - 07-07-2014 - IR231 - Jason Madigan
+
+* 7579 - Service apps which are marked as "Public" should bypass auth
+
 ## 3.0.5 - 25-06-2014 - IR230 - Wei Li
 
 * 7500 - Parse client information sent by native SDKs from request headers
