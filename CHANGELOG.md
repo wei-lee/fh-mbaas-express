@@ -1,5 +1,9 @@
 #Component: fh-mbaas-express
 
+## 4.0.4 - 2014-07-09 - IR231 - Martin Murphy
+
+* 7594 - change order of api key checks to allow for multipart-form type requests
+
 ## 4.0.3 - 2014-07-07 - IR231 - Jason Madigan
 
 * 7579 - Service apps which are marked as "Public" should bypass auth
