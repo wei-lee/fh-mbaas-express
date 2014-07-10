@@ -3,6 +3,7 @@
 ## 4.0.4 - 2014-07-09 - IR231 - Martin Murphy
 
 * 7594 - change order of api key checks to allow for multipart-form type requests
+* 7596 - add a multipart file middleware
 
 ## 4.0.3 - 2014-07-07 - IR231 - Jason Madigan
 
