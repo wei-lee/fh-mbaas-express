@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - lib/common/message.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>lib/common/message.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">67.31</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">96</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">23.32</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.89</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">var messaging_enabled = process.env.FH_AMQP_APP_ENABLED;
+var messaging_user = process.env.FH_AMQP_USER;
+var message_pass = process.env.FH_AMQP_PASS;
+var messaging_nodes =   process.env.FH_AMQP_NODES;
+var messaging_max_cons = process.env.FH_AMQP_CONN_MAX || 10;
+var messaging_vhost = process.env.FH_AMQP_VHOST;
+var messaging_exchange =&quot;fh-events&quot;;
+var amqpManager;
+var retAmqp;
+
+
+module.exports = function (){
+  //first time requed set up singletons
+
+
+  function connect(cb){
+    if (messaging_enabled &amp;&amp; messaging_enabled !== &quot;false&quot; &amp;&amp; ! retAmqp) {
+      var clusterNodes = [];
+      var nodes = (messaging_nodes &amp;&amp; messaging_nodes.split) ? messaging_nodes.split(&quot;,&quot;) : [];
+      var vhost = &quot;&quot;;
+      if(messaging_vhost &amp;&amp; messaging_vhost.trim() !== &quot;/&quot;){
+        vhost = messaging_vhost.trim();
+        if(vhost.indexOf(&quot;/&quot;) !== 0){
+          vhost = &quot;/&quot; + vhost;
+        }
+      }
+      for(var i=0; i &lt; nodes.length; i++){
+        var node = nodes[i].trim();
+        node = &quot;amqp://&quot;+messaging_user+&quot;:&quot;+message_pass+&quot;@&quot;+node+vhost;
+        clusterNodes.push(node);
+      }
+
+
+      var conf = {
+        &quot;enabled&quot;: messaging_enabled,
+        &quot;clusterNodes&quot;: clusterNodes,
+        &quot;maxReconnectAttempts&quot;: messaging_max_cons
+      };
+
+      var amqpjs = require(&#039;fh-amqp-js&#039;);
+      amqpManager = new amqpjs.AMQPManager(conf);
+      amqpManager.connectToCluster();
+
+
+      amqpManager.on(&quot;error&quot;, function(err){
+        cb(err);
+      });
+      //all good set up object
+      amqpManager.on(&quot;connection&quot;, function(){
+        var retObj = {};
+        retObj[&quot;createErrorMessage&quot;] = function (err){
+          err = err || {};
+          return {
+            &quot;uid&quot;: process.env.FH_INSTANCE,
+            &quot;timestamp&quot;: new Date().getTime(),
+            &quot;eventType&quot;: &quot;CRASHED&quot;,
+            &quot;eventClass&quot;: &quot;APP_STATE&quot;,
+            &quot;eventLevel&quot;: &quot;ERROR&quot;,
+            &quot;domain&quot;: process.env.FH_DOMAIN,
+            &quot;appName&quot;:process.env.FH_APPNAME,
+            &quot;env&quot;: process.env.FH_ENV || &quot;&quot;,
+            &quot;updatedBy&quot;:&quot;System&quot;,
+            &quot;dyno&quot;: &quot;&quot;,
+            &quot;details&quot;: {&quot;message&quot;: &quot;app crashed&quot;, &quot;error&quot;: err.message, &quot;stackTrace&quot;: err.stack}
+          };
+        };
+
+        retObj[&quot;sendErrorMessage&quot;] = function (err , cb){
+          var message = retObj.createErrorMessage(err);
+          amqpManager.publishTopic(messaging_exchange, &quot;fh.events.nodeapp.app.crashed&quot;, message, function (err) {
+            //ignore errors
+            cb();
+          });
+        };
+        cb(undefined,retObj);
+      });
+    }else if(messaging_enabled &amp;&amp; messaging_enabled !== &quot;false&quot; &amp;&amp; retAmqp){
+      cb(undefined,retAmqp);
+    }else{
+      cb({&quot;message&quot;:&quot;messaging not enabled&quot;,&quot;code&quot;:503});
+    }
+  };
+  connect(function (er, conn){
+     retAmqp = conn;
+  });
+
+
+  return {
+    &quot;getAmqp&quot;: function (cb){
+      connect(cb);
+    },
+    &quot;getAmqpManager&quot;: function (){
+      return amqpManager;
+    }
+  };
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>
