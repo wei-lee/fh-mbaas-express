@@ -28,6 +28,8 @@
     "nock": "0.22.1",
     "turbo-test-runner": "~0.3",
     "istanbul": "0.1.42",
+    "jshint" : "^2.5.2",
+    "plato" : "^1.0.1",
     "form-data": "0.1.2"
   },
   "license": "Copyright (c) 2014 FeedHenry Ltd, All Rights Reserved."

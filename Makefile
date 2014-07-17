@@ -24,6 +24,14 @@ all: clean npm_deps test_unit dist
 
 test: test_unit test_accept
 
+jshint:
+	./node_modules/.bin/jshint lib/*.js lib/**/*.js
+
+# Plato - nice static analysis: https://github.com/es-analysis/plato
+plato:
+	./node_modules/.bin/plato -r -d plato -l .jshintrc lib
+	@echo Open the Plato report in `pwd`/plato/index.html
+
 coverage: test_unit_cov test_accept_cov
 	rm -rf $(COVERAGE)
 	./node_modules/.bin/istanbul report
