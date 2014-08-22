@@ -1,6 +1,9 @@
 ----------------------------------------------------------------------
 Component: fh-mbaas-express
 ----------------------------------------------------------------------
+## 3.1.0 - 2014-08-22 - IR234 - Niall Donnelly
+
+* 7821 Update minor version of fh-mbaas-api to version 3.1.0 to use multiple targets for rules.
 
 ## 3.0.7 - 2014-07-09 - IR231 - Martin Murphy
 
