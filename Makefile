@@ -20,7 +20,7 @@ COVERAGE = ./coverage
 RELEASE_FILE = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER).tar.gz
 RELEASE_DIR = $(PACKAGE)-$(VERSION)-$(BUILD_NUMBER)
 
-all: clean npm_deps test_unit dist
+all: clean npm_deps test_unit coverage dist
 
 test: test_unit test_accept
 
