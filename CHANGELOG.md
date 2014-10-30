@@ -1,5 +1,9 @@
 #Component: fh-mbaas-express
 
+## 4.0.5 - 2014-10-30 - IR239 - Wei Li
+
+* 8212 - Update fh-amqp-js version
+
 ## 4.0.4 - 2014-07-09 - IR231 - Martin Murphy
 
 * 7594 - change order of api key checks to allow for multipart-form type requests
