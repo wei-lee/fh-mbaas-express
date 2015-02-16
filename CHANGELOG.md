@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 4.1.0 - 2015-02-16 - IR247 - Wei Li
+* 8758 - Update fh-amqp-js module
+
 ## 4.0.6 - 2014-10-31 - IR239 - David Martin
 * 8169 - Added uncaught exception handler to allow crash alerts/events to be detected by platform
 
