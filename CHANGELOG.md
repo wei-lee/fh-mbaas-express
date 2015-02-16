@@ -1,6 +1,6 @@
 #Component: fh-mbaas-express
 
-## 4.1.0 - 2015-02-16 - IR247 - Wei Li
+## 4.0.7 - 2015-02-16 - IR247 - Wei Li
 * 8758 - Update fh-amqp-js module
 
 ## 4.0.6 - 2014-10-31 - IR239 - David Martin
