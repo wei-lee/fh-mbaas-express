@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 5.2.0 - 2015-09-21 - Evan Shortiss
+* Update error handler behaviour to only do shutdowns on uncaught expections. 
+
 ## 5.1.0 - 2015-10-08 - Graham Hillis
 * FH-1067 - mbaas client usage for event creation in mbaas
 
