@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 4.0.8 - 2015-02-25 - Wei Li
+* FHCLOUDSDK-2 - Add ReadMe file to npm.
+
 ## 4.0.7 - 2015-02-16 - IR247 - Wei Li
 * 8758 - Update fh-amqp-js module
 

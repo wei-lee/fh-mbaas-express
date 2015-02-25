@@ -4,44 +4,58 @@ fh-mbaas-express
 fh-mbaas-express is the FeedHenry MBaaS running on top of [Express](http://expressjs.com/).
 
 # Usage
-Add the following to the 'dependencies' section of your **'cloud/package.json'** file:
 
-    "fh-mbaas-express" : "~3.0.0",
-    "fh-mbaas-api" : ~3.0.0"",
+Add the following to the 'dependencies' section of the app's **'package.json'** file:
+
+    "fh-mbaas-express" : "~4.0.0",
     "express" : "~4.0.0"
 
-Add a file to your FeedHenry app **'cloud/application.js'**, with the following contents:
+Add a file to the app's **'application.js'**, with the following contents:
 
 ```javascript
-var mbaas = require('fh-mbaas-express');
 var express = require('express');
+var mbaasExpress = require('fh-mbaas-express');
+var cors = require('cors');
 
-// Securable endpoints: list the endpoints which you want to make securable here
-var securableEndpoints = ['hello'];
+// list the endpoints which you want to make securable here
+var securableEndpoints;
+// fhlint-begin: securable-endpoints
+securableEndpoints = ['/hello'];
+// fhlint-end
 
 var app = express();
 
+// Enable CORS for all requests
+app.use(cors());
+
 // Note: the order which we add middleware to Express here is important!
-app.use('/sys', mbaas.sys(mainjs, securableEndpoints));
-app.use('/mbaas', mbaas.mbaas);
+app.use('/sys', mbaasExpress.sys(securableEndpoints));
+app.use('/mbaas', mbaasExpress.mbaas);
 
 // Note: important that this is added just before your own Routes
-app.use(mbaas.fhmiddleware());
-app.use('/cloud', require('./lib/hello.js')());
+app.use(mbaasExpress.fhmiddleware());
 
+// allow serving of static files from the public directory
+app.use(express.static(__dirname + '/public'));
 
-// You can define custom URL handlers here, like this one:
-app.use('/', function(req, res){
-  res.end('Your Cloud App is Running');
-});
+// fhlint-begin: custom-routes
+app.use('/', require('./lib/cloud.js')());
+// fhlint-end
 
 // Important that this is last!
-app.use(mbaas.errorHandler());
+app.use(mbaasExpress.errorHandler());
 
 var port = process.env.FH_PORT || process.env.VCAP_APP_PORT || 8001;
-var server = app.listen(port, function(){
+var server = app.listen(port, function() {
   console.log("App started at: " + new Date() + " on port: " + port);
 });
+```
+
+When running on the [FeedHenry](http://www.feedhenry.com/) platform, this module should not be used directly. Instead, [fh-mbaas-api](https://github.com/fheng/fh-mbaas-api) module should be used and an instance of fh-mbaas-express cab be obtained via fh-mbaas-api. E.g.
+
+```javascript
+var mbaasApi = require('fh-mbaas-api');
+var mbaasExpress = mbaasApi.mbaasExpress();
 ```
 
 ## Customising & Extending
@@ -67,7 +81,7 @@ Express has a built-in static file server. In this example, we host files under 
 
 ## Cloud
 
-###(POST | GET | PUT) /cloud/:someFunction
+###(POST | GET | PUT | DELETE) /:someFunction
 **Authentication** : Optional - can be enabled globally or on a per-endpoint basis under "Endpoints" section of the studio.
 **Response formats** : JSON, binary, plain text
 
@@ -82,7 +96,7 @@ Result as passed to the callback function of the exported function - see 'Writin
 
 ###Writing API functions
 
-We recommend adding your own routes to `/cloud`, see `lib/hello.js` in the `hello world` example. . Also see [Express Router](http://expressjs.com/4x/api.html#router) for more information.
+See [Express Router](http://expressjs.com/4x/api.html#router) for more information.
 
 ```javascript
 function helloRoute() {
