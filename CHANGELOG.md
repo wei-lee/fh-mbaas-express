@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 4.0.9 - 2015-02-16 - IR244 - Cian Clarke
+* 8665 - Add Openshift support to analytics functionality
+
 ## 4.0.8 - 2015-02-25 - Wei Li
 * FHCLOUDSDK-2 - Add ReadMe file to npm.
 
