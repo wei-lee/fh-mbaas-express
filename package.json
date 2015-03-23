@@ -6,13 +6,13 @@
   "author": "FeedHenry",
   "dependencies": {
     "underscore": "1.5.1",
-    "request": "2.25.0",
+    "request": "2.40.0",
     "async": "0.2.9",
     "cors": "2.1.0",
     "fh-amqp-js": "0.4.1",
     "fh-reportingclient": "0.2.2",
-    "express": "~4.0.0",
-    "body-parser": "~1.0.2",
+    "express": "~4.10.8",
+    "body-parser": "~1.6.7",
     "type-is": "~1.1.0",
     "multer": "0.0.5"
   },
@@ -32,5 +32,9 @@
     "plato" : "^1.0.1",
     "form-data": "0.1.2"
   },
-  "license": "Copyright (c) 2014 FeedHenry Ltd, All Rights Reserved."
+  "license": "Copyright (c) 2014 FeedHenry Ltd, All Rights Reserved.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fheng/fh-mbaas-express.git"
+  }
 }
