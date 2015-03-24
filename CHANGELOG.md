@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 4.0.10 - 2015-03-24 - Jason Madigan
+* Removed checked in /plato folder
+
 ## 4.0.9 - 2015-02-16 - IR244 - Cian Clarke
 * 8665 - Add Openshift support to analytics functionality
 
