@@ -39,3 +39,35 @@ exports.it_should_test_middleware = function(callback) {
     callback();
   });
 };
+
+exports.it_shoudl_test_auth_middleware = function(callback){
+  var fhmiddleware = proxyquire('fh-middleware.js', {});
+  fhmiddleware.setFhApi(require('../fixtures/mockAPI.js'));
+
+  var authMiddleware = fhmiddleware.fhauth();
+  var req = {
+    url: '/test/foo',
+    headers: {
+      'X-FH-appid': 'testappid',
+      'X-FH-appkey':'testappkey',
+      'X-FH-projectid': 'testprojectid',
+      'X-FH-connectiontag': 'testconnectiontag',
+      'X-FH-sessiontoken': 'testsessiontoken'
+    }
+  };
+
+  var res = {
+    status: function(){
+      return res;
+    },
+    send: function(){
+      return;
+    }
+  }
+
+  authMiddleware(req, res, function(err){
+    assert.ok(!err);
+    callback();
+  });
+
+}
