@@ -1,5 +1,5 @@
 {
-  "name": "fh-mbaas-express",
+  "name": "fh-mbaas-express-alpha",
   "version": "4.0.11",
   "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
