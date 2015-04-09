@@ -1,6 +1,6 @@
 #Component: fh-mbaas-express
 
-## 4.0.11 - 2015-04-03 - Wei Li
+## 4.1.0 - 2015-04-03 - Wei Li
 * FHCLOUDSDK-7 - New middleware for auth token verification
 
 ## 4.0.10 - 2015-03-24 - Jason Madigan

@@ -53,6 +53,12 @@ exports.it_shoudl_test_auth_middleware = function(callback){
       'X-FH-projectid': 'testprojectid',
       'X-FH-connectiontag': 'testconnectiontag',
       'X-FH-sessiontoken': 'testsessiontoken'
+    },
+    pause: function(){
+
+    },
+    resume: function(){
+      
     }
   };
 
