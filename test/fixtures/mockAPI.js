@@ -81,6 +81,11 @@ var api = {
       }
     };
     if (callback) callback(undefined, dbReplies.list());
+  },
+  "auth": {
+    "verify": function(token, opts, cb){
+      return cb(null, true);
+    }
   }
 }
 
