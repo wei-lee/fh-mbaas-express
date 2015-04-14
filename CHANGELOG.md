@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 4.1.1 - 2015-04-14 - Gerard Ryan
+* Add a shrinkwrap file for npm
+
 ## 4.1.0 - 2015-04-03 - Wei Li
 * FHCLOUDSDK-7 - New middleware for auth token verification
 

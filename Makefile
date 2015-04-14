@@ -3,9 +3,9 @@ PACKAGE = fh-mbaas-express
 # Note: Get the Major/Release/Hotfix numbers from package.json.
 # TODO: should really try use a JSON command line tool to do this,
 # this could easily be done in Node but would introduce an additional
-# build dependency.. 
+# build dependency..
 #
-PKG_VER:=$(shell grep version package.json| sed s/\"//g| sed s/version://g| sed s/-BUILD-NUMBER//g| tr -d ' '| tr -d ',') 
+PKG_VER:=$(shell grep version package.json| sed s/\"//g| sed s/version://g| tr -d ' '| tr -d ',')
 MAJOR:=$(shell echo $(PKG_VER)| cut -d '.' -f1)
 RELEASE:=$(shell echo $(PKG_VER)| cut -d '.' -f2)
 HOTFIX:=$(shell echo $(PKG_VER)| cut -d '.' -f3)
@@ -52,7 +52,7 @@ test_accept_cov: npm_deps
 	env NODE_PATH=./lib ./node_modules/.bin/istanbul cover --dir cov-accept ./node_modules/.bin/turbo -- --setUp ./test/setup.js --tearDown ./test/setup.js ./test/accept
 
 
-npm_deps: 
+npm_deps:
 	npm install .
 
 # Note we create two distributions, one with Mongo, one without.
@@ -65,7 +65,6 @@ dist: npm_deps
 	cp ./package.json $(OUTPUT_DIR)/$(RELEASE_DIR)
 	cp ./README.md $(OUTPUT_DIR)/$(RELEASE_DIR)
 	echo "$(MAJOR).$(RELEASE).$(HOTFIX)-$(BUILD_NUMBER)" > $(OUTPUT_DIR)/$(RELEASE_DIR)/VERSION.txt
-	sed -i -e s/BUILD-NUMBER/$(BUILD_NUMBER)/ $(OUTPUT_DIR)/$(RELEASE_DIR)/package.json
 	tar -czf $(DIST_DIR)/$(RELEASE_FILE) -C $(OUTPUT_DIR) $(RELEASE_DIR)
 clean:
 	rm -rf $(DIST_DIR) $(OUTPUT_DIR) $(MODULES) $(COV_DIR) $(COVERAGE) cov-unit cov-accept
