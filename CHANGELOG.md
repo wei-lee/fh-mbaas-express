@@ -1,4 +1,6 @@
 #Component: fh-mbaas-express
+## 4.1.2 - 2015-05-05 - Wei Li
+* FHCLOUDSDK-10 - Add missing CORS headers
 
 ## 4.1.1 - 2015-04-14 - Gerard Ryan
 * Add a shrinkwrap file for npm
