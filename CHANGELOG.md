@@ -1,4 +1,8 @@
 #Component: fh-mbaas-express
+
+## 4.1.3 - 2015-03-23 - Bruno Oliveira
+* FH-109: Update fh-mbaas-express to mitigate vulnerabilities
+
 ## 4.1.2 - 2015-05-05 - Wei Li
 * FHCLOUDSDK-10 - Add missing CORS headers
 
