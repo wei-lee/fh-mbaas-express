@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 4.1.4 - 2015-06-23 - Gerard Ryan
+* FH-164 - Build using Grunt instead of Make
+
 ## 4.1.3 - 2015-03-23 - Bruno Oliveira
 * FH-109: Update fh-mbaas-express to mitigate vulnerabilities
 
