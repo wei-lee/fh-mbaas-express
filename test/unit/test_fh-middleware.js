@@ -22,7 +22,9 @@ exports.it_should_test_middleware = function(callback) {
       'X-FH-appkey':'testappkey',
       'X-FH-projectid': 'testprojectid',
       'X-FH-connectiontag': 'testconnectiontag'
-    }
+    },
+    pause: function() {},
+    resume: function() {}
   };
 
   // create fake response
@@ -58,7 +60,7 @@ exports.it_shoudl_test_auth_middleware = function(callback){
 
     },
     resume: function(){
-      
+
     }
   };
 

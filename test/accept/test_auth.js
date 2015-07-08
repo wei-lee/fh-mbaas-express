@@ -56,6 +56,7 @@ module.exports = {
       }
     }, function(err, response, data){
       assert.ok(!err);
+      console.log(response.statusCode)
       assert.ok(response.statusCode === 401);
       assert.ok(response && data);
       finish();
