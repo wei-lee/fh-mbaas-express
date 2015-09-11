@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-express",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
   "author": "FeedHenry",
@@ -26,7 +26,7 @@
     "cli-color": "0.2.2",
     "form-data": "0.1.2",
     "grunt": "^0.4.5",
-    "grunt-fh-build": "^0.0.14",
+    "grunt-fh-build": "^0.3.0",
     "istanbul": "0.1.42",
     "jshint": "^2.5.2",
     "nock": "0.22.1",

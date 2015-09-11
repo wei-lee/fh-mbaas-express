@@ -1,7 +1,9 @@
 #Component: fh-mbaas-express
 
-## 5.0.0 - 2015-07-13 - Niall Donnelly
+## 5.0.1 - 2015-09-11 - Gerard Ryan
+* Bump version of grunt-fh-build, so that archive with dependencies will get built
 
+## 5.0.0 - 2015-07-13 - Niall Donnelly
 * FHCLOUDSDK-14 - Updated multer version to fix file streaming to fh-mbaas
 
 ## 4.2.0 - 2015-06-30 - Jason Madigan
