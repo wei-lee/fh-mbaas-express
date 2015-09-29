@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 5.1.0 - 2015-10-08 - Graham Hillis
+* FH-1067 - mbaas client usage for event creation in mbaas
+
 ## 5.0.1 - 2015-09-11 - Gerard Ryan
 * Bump version of grunt-fh-build, so that archive with dependencies will get built
 

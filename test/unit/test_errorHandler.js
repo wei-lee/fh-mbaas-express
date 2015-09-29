@@ -4,7 +4,17 @@ var proxyquire = require('proxyquire');
 
 exports.it_should_test_error_handler = function(finish) {
 
-  var eh = proxyquire('errorHandler.js', {});
+  var eh = proxyquire('errorHandler.js', { 'fh-mbaas-client': {
+    'initEnvironment': function(env, obj){},
+    'app':{
+      'events':{
+        'create': function (obj, cb){
+          return cb();
+        }
+      }
+    }
+  }});
+
   var originalExit = process.exit;
 
   var res = {
@@ -21,5 +31,5 @@ exports.it_should_test_error_handler = function(finish) {
 
   process.exit = function() {}
 
-  eh.errorHandler()({msg: 'test error'}, {}, res);
+  eh.errorHandler()({ msg: 'test error' }, null, res, null);
 };
