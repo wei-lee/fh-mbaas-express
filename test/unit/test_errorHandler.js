@@ -2,34 +2,54 @@ var util = require('util');
 var assert = require('assert');
 var proxyquire = require('proxyquire');
 
-exports.it_should_test_error_handler = function(finish) {
-
-  var eh = proxyquire('errorHandler.js', { 'fh-mbaas-client': {
-    'initEnvironment': function(env, obj){},
-    'app':{
-      'events':{
-        'create': function (obj, cb){
-          return cb();
-        }
+var eh = proxyquire('errorHandler.js', { 'fh-mbaas-client': {
+  'initEnvironment': function(env, obj){},
+  'app':{
+    'events':{
+      'create': function (obj, cb){
+        return cb();
       }
     }
-  }});
+  }
+}});
 
+exports.it_should_not_attempt_process_exit = function(finish) {
   var originalExit = process.exit;
+  var exitCalled = false;
 
   var res = {
     end: function(){
-      console.log("got end", arguments);
-
       setTimeout(function(){
         process.exit = originalExit;
+        assert.equal(exitCalled, false);
         finish();
       }, 1000);
     }
   };
 
+  process.exit = function() {
+    exitCalled = true;
+  };
 
-  process.exit = function() {}
+  // Mimic this being called by express core itself
+  eh.errorHandler()({msg: 'test error'}, {}, res);
+};
 
-  eh.errorHandler()({ msg: 'test error' }, null, res, null);
+exports.it_should_attempt_process_exit = function (finish) {
+
+  var originalExit = process.exit;
+  var exitCalled = false;
+
+  // If this is called test is a success
+  process.exit = function() {
+    exitCalled = true;
+  };
+
+  // Mimic call by the uncaughtException handler
+  eh.handleUncaughtException({msg: 'test error'});
+  setTimeout(function(){
+    assert.equal(exitCalled, true);
+    process.exit = originalExit;
+    finish();
+  }, 1000);
 };

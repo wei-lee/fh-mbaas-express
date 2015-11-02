@@ -1,5 +1,9 @@
 #Component: fh-mbaas-express
 
+## 5.2.0 - 2015-09-21 - Evan Shortiss
+* RHMAP-2693 - Update error handler behaviour to only do shutdowns on uncaught expections.
+* RHMAP-2627 - Remove deprecated warning messages about bodyParser
+
 ## 5.1.0 - 2015-10-08 - Graham Hillis
 * FH-1067 - mbaas client usage for event creation in mbaas
 
