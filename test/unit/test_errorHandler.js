@@ -32,7 +32,7 @@ exports.it_should_not_attempt_process_exit = function(finish) {
   };
 
   // Mimic this being called by express core itself
-  eh.errorHandler()({msg: 'test error'}, {}, res);
+  eh.errorHandler()({msg: 'test error(pe)'}, {}, res);
 };
 
 exports.it_should_attempt_process_exit = function (finish) {
@@ -46,7 +46,7 @@ exports.it_should_attempt_process_exit = function (finish) {
   };
 
   // Mimic call by the uncaughtException handler
-  eh.handleUncaughtException({msg: 'test error'});
+  eh.handleUncaughtException({msg: 'test error(ex)'});
   setTimeout(function(){
     assert.equal(exitCalled, true);
     process.exit = originalExit;
