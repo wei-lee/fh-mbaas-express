@@ -87,12 +87,12 @@ var api = {
       return cb(null, true);
     }
   }
-}
+};
 
 api.mbaasExpress = function(opts){
   opts = opts || {};
   opts.api = api;
   return require('../../lib/webapp.js')(opts);
-}
+};
 
 module.exports = api;
