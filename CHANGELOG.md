@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 5.3.6 - 2015-12-17 - Graham Hillis
+* RHMAP-3565 - realtime enabled bugfix in fh-reportingclient, version bump for fh-mbaas-express
+
 ## 5.3.5 - 2015-11-12 - Graham Hillis
 * RHMAP-2618 - add environment to reporting messages (app crash now flushes reporting batch)
 
