@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-express",
-  "version": "5.3.6",
+  "version": "5.3.7",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -685,9 +685,9 @@
       }
     },
     "fh-reportingclient": {
-      "version": "0.3.5",
-      "from": "fh-reportingclient@0.3.5",
-      "resolved": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.5.tgz",
+      "version": "0.3.6",
+      "from": "fh-reportingclient@0.3.6",
+      "resolved": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.3.6.tgz",
       "dependencies": {
         "async": {
           "version": "0.1.16",
