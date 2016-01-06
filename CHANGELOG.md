@@ -1,5 +1,8 @@
 #Component: fh-mbaas-express
 
+## 5.3.7 - 2016-01-06 - Graham Hillis
+* RHMAP-3565 - test update and log message update in fh-reportingclient, version bump for fh-mbaas-express
+
 ## 5.3.6 - 2015-12-17 - Graham Hillis
 * RHMAP-3565 - realtime enabled bugfix in fh-reportingclient, version bump for fh-mbaas-express
 
