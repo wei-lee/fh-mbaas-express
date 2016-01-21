@@ -1,5 +1,20 @@
 #Component: fh-mbaas-express
 
+## 5.3.7 - 2016-01-06 - Graham Hillis
+* RHMAP-3565 - test update and log message update in fh-reportingclient, version bump for fh-mbaas-express
+
+## 5.3.6 - 2015-12-17 - Graham Hillis
+* RHMAP-3565 - realtime enabled bugfix in fh-reportingclient, version bump for fh-mbaas-express
+
+## 5.3.5 - 2015-11-12 - Graham Hillis
+* RHMAP-2618 - add environment to reporting messages (app crash now flushes reporting batch)
+
+## 5.3.1 - 2015-11-9 - Graham Hillis
+* RHMAP-2618 - add environment to reporting messages (bumped version for fh-reportingclient)
+
+## 5.3.0 - 2015-11-9 - Graham Hillis
+* RHMAP-2618 - add environment to reporting messages
+
 ## 5.2.0 - 2015-09-21 - Evan Shortiss
 * RHMAP-2693 - Update error handler behaviour to only do shutdowns on uncaught expections.
 * RHMAP-2627 - Remove deprecated warning messages about bodyParser
