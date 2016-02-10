@@ -2,6 +2,10 @@ var util = require('util');
 var assert = require('assert');
 var proxyquire = require('proxyquire');
 
+var mockGetFhAPI = function(){
+  return require('../fixtures/mockAPI.js');
+};
+
 exports.it_should_test_middleware = function(callback) {
   var gotMockReport = false;
   var mockreports = {
@@ -11,8 +15,12 @@ exports.it_should_test_middleware = function(callback) {
     }, '@noCallThru': true
   };
 
-  var fhmiddleware = proxyquire('fh-middleware.js', {"./cloud/fh-reports.js": mockreports});
-  fhmiddleware.setFhApi(require('../fixtures/mockAPI.js'));
+  var fhmiddleware = proxyquire('fh-middleware.js', {
+    "./cloud/fh-reports.js": mockreports,
+    "./common/fhMbaasApi": {
+      getFhApi: mockGetFhAPI
+    }
+  });
   var fhm = fhmiddleware.fhmiddleware();
 
   var req = {
@@ -43,8 +51,11 @@ exports.it_should_test_middleware = function(callback) {
 };
 
 exports.it_shoudl_test_auth_middleware = function(callback){
-  var fhmiddleware = proxyquire('fh-middleware.js', {});
-  fhmiddleware.setFhApi(require('../fixtures/mockAPI.js'));
+  var fhmiddleware = proxyquire('fh-middleware.js', {
+    "./common/fhMbaasApi": {
+      getFhApi: mockGetFhAPI
+    }
+  });
 
   var authMiddleware = fhmiddleware.fhauth();
   var req = {
@@ -71,11 +82,11 @@ exports.it_shoudl_test_auth_middleware = function(callback){
     send: function(){
       return;
     }
-  }
+  };
 
   authMiddleware(req, res, function(err){
     assert.ok(!err);
     callback();
   });
 
-}
+};

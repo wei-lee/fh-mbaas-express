@@ -3,6 +3,7 @@
 ## 5.3.0 - 2015-11-26 - Niall Donnelly
 
 * RHMAP-2440 - Add Service Access Key Authentication
+* RHMAP-2800 - Added fh-mbaas-api version header.
 
 ## 5.2.0 - 2015-09-21 - Evan Shortiss
 * RHMAP-2693 - Update error handler behaviour to only do shutdowns on uncaught expections.
