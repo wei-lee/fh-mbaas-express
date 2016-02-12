@@ -7,6 +7,9 @@ var testFileLoc = __dirname + '/test.pdf';
 
 
 var api = {
+  getVersion: function(){
+    return "5.6.0";
+  },
   "forms": {
     "getAppClientConfig": function (params, cb) {
       return cb(undefined, {"status": "ok", called: "getAppClientConfig", params: params});
