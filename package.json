@@ -10,7 +10,7 @@
     "cors": "2.1.0",
     "express": "~4.10.8",
     "fh-amqp-js": "0.4.1",
-    "fh-mbaas-client": "^0.6.1",
+    "fh-mbaas-client": "0.7.0-97",
     "fh-reportingclient": "0.3.7",
     "multer": "0.1.8",
     "request": "2.40.0",
