@@ -1,10 +1,6 @@
 {
   "name": "fh-mbaas-express",
-<<<<<<< HEAD
   "version": "5.4.0",
-=======
-  "version": "5.3.11",
->>>>>>> upstream/master
   "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
   "author": "FeedHenry",
