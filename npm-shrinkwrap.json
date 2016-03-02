@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-express",
-  "version": "5.3.11",
+  "version": "5.4.0",
   "dependencies": {
     "async": {
       "version": "0.2.9",
@@ -354,9 +354,9 @@
       }
     },
     "fh-mbaas-client": {
-      "version": "0.6.1",
-      "from": "fh-mbaas-client@0.6.1",
-      "resolved": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.6.1.tgz",
+      "version": "0.7.0",
+      "from": "fh-mbaas-client@0.7.0",
+      "resolved": "http://npm.skunkhenry.com/fh-mbaas-client/-/fh-mbaas-client-0.7.0.tgz",
       "dependencies": {
         "request": {
           "version": "2.58.0",
