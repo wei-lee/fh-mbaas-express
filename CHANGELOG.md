@@ -1,5 +1,9 @@
 #Component: fh-mbaas-express
 
+## 5.4.1 - 2016-03-02 - Niall Donnelly
+
+* Using lowercase service access key header
+
 ## 5.4.0 - 2015-11-26 - Niall Donnelly
 
 * RHMAP-2440 - Add Service Access Key Authentication

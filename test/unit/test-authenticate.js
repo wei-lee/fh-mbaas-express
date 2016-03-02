@@ -49,7 +49,7 @@ module.exports = {
 
     var req = {
       headers: {
-        'X-FH-SERVICE-ACCESS-KEY': "accesskey1234"
+        'x-fh-service-access-key': "accesskey1234"
       }
     };
 
