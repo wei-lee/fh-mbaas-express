@@ -355,7 +355,7 @@
     },
     "fh-mbaas-client": {
       "version": "0.7.4",
-      "from": "fh-mbaas-client@0.7.4",
+      "from": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.7.4.tgz",
       "resolved": "https://registry.npmjs.org/fh-mbaas-client/-/fh-mbaas-client-0.7.4.tgz",
       "dependencies": {
         "request": {
@@ -756,9 +756,9 @@
       }
     },
     "fh-reportingclient": {
-      "version": "0.4.0",
-      "from": "fh-reportingclient@0.4.0",
-      "resolved": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.4.0.tgz",
+      "version": "0.4.1",
+      "from": "fh-reportingclient@0.4.1",
+      "resolved": "https://registry.npmjs.org/fh-reportingclient/-/fh-reportingclient-0.4.1.tgz",
       "dependencies": {
         "async": {
           "version": "1.5.2",

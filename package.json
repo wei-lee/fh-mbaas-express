@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-express",
-  "version": "5.4.2",
+  "version": "5.4.3",
   "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
   "author": "FeedHenry",
@@ -11,7 +11,7 @@
     "express": "~4.10.8",
     "fh-amqp-js": "0.4.1",
     "fh-mbaas-client": "0.7.4",
-    "fh-reportingclient": "0.4.0",
+    "fh-reportingclient": "^0.4.1",
     "multer": "0.1.8",
     "request": "2.40.0",
     "type-is": "~1.1.0",
