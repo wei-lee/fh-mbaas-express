@@ -1,6 +1,7 @@
 // Copyright (c) FeedHenry 2011
 var request = require('request');
 var assert = require('assert');
+var mockApi = require('../fixtures/mockAPI');
 
 module.exports = {
   'test sys/info/ping endpoint' : function(finish) {
@@ -45,6 +46,8 @@ module.exports = {
     request(process.env.FH_TEST_HOSTNAME + '/sys/info/version', function(err, response, body){
       assert.ok(!err);
       assert.ok(response);
+      assert.ok(response.headers['x-fh-mbaas-api-version']);
+      assert.equal(mockApi.getVersion(), response.headers['x-fh-mbaas-api-version']);
       assert.ok(body);
       finish();
     });

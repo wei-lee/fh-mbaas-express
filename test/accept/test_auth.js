@@ -1,5 +1,6 @@
 var request = require('request');
 var assert = require('assert');
+var async = require('async');
 
 module.exports = {
   "test authed call with header" : function(finish){

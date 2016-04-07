@@ -7,6 +7,9 @@ var testFileLoc = __dirname + '/test.pdf';
 
 
 var api = {
+  getVersion: function(){
+    return "5.6.0";
+  },
   "forms": {
     "getAppClientConfig": function (params, cb) {
       return cb(undefined, {"status": "ok", called: "getAppClientConfig", params: params});
@@ -87,12 +90,12 @@ var api = {
       return cb(null, true);
     }
   }
-}
+};
 
 api.mbaasExpress = function(opts){
   opts = opts || {};
   opts.api = api;
   return require('../../lib/webapp.js')(opts);
-}
+};
 
 module.exports = api;
