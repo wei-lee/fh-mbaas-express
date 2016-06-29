@@ -36,7 +36,7 @@
     "proxyquire": "0.4.1",
     "turbo-test-runner": "~0.3"
   },
-  "license": "Copyright (c) 2014 FeedHenry Ltd, All Rights Reserved.",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:fheng/fh-mbaas-express.git"
