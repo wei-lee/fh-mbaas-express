@@ -3,7 +3,6 @@
   "version": "5.5.0",
   "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
-  "author": "FeedHenry",
   "dependencies": {
     "async": "0.2.9",
     "body-parser": "~1.6.7",
