@@ -7,7 +7,7 @@ fh-mbaas-express is the FeedHenry MBaaS running on top of [Express](http://expre
 
 Add the following to the 'dependencies' section of the app's **'package.json'** file:
 
-    "fh-mbaas-express" : "~4.0.0",
+    "fh-mbaas-express" : "~5.5.0",
     "express" : "~4.0.0"
 
 Add a file to the app's **'application.js'**, with the following contents:
