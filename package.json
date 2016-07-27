@@ -1,18 +1,18 @@
 {
   "name": "fh-mbaas-express",
-  "version": "5.5.0",
+  "version": "5.6.0",
   "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
   "dependencies": {
     "async": "0.2.9",
-    "body-parser": "~1.6.7",
+    "body-parser": "1.15.2",
     "cors": "2.1.0",
-    "express": "~4.10.8",
+    "express": "4.14.0",
     "fh-amqp-js": "0.7.0",
     "fh-mbaas-client": "0.12.0",
-    "fh-reportingclient": "0.5.0",
+    "fh-reportingclient": "0.5.2",
     "multer": "0.1.8",
-    "request": "2.40.0",
+    "request": "2.74.0",
     "type-is": "~1.1.0",
     "underscore": "1.5.1"
   },
@@ -35,9 +35,12 @@
     "proxyquire": "0.4.1",
     "turbo-test-runner": "~0.3"
   },
+  "scripts": {
+    "test": "grunt fh:coverage fh:analysis fh:dist"
+  },
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:fheng/fh-mbaas-express.git"
+    "url": "git@github.com:feedhenry/fh-mbaas-express.git"
   }
 }
