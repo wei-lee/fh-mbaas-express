@@ -1,14 +1,20 @@
 fh-mbaas-express
 ================
 
+[![npm package](https://nodei.co/npm/fh-mbaas-express.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/fh-mbaas-express/)
+
+[![Build status](https://img.shields.io/travis/feedhenry/fh-mbaas-express/master.svg?style=flat-square)](https://travis-ci.org/feedhenry/fh-mbaas-express)
+[![Dependency Status](https://img.shields.io/david/feedhenry/fh-mbaas-express.svg?style=flat-square)](https://david-dm.org/feedhenry/fh-mbaas-express)
+[![Known Vulnerabilities](https://snyk.io/test/npm/fh-mbaas-express/badge.svg?style=flat-square)](https://snyk.io/test/npm/fh-mbaas-express)
+
 fh-mbaas-express is the FeedHenry MBaaS running on top of [Express](http://expressjs.com/).
 
 # Usage
 
 Add the following to the 'dependencies' section of the app's **'package.json'** file:
 
-    "fh-mbaas-express" : "~5.5.0",
-    "express" : "~4.0.0"
+    "fh-mbaas-express" : "~5.6.0",
+    "express" : "~4.14.0"
 
 Add a file to the app's **'application.js'**, with the following contents:
 
@@ -72,11 +78,11 @@ See [Express Router](http://expressjs.com/4x/api.html#router) for more informati
 
 ### Serving Static Files
 Express has a built-in static file server. In this example, we host files under the public directory:  
-    
+
     app.use(express.static(__dirname + '/public'));
 
 
-# REST API	
+# REST API
 
 
 ## Cloud
