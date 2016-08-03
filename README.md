@@ -9,6 +9,15 @@ fh-mbaas-express
 
 fh-mbaas-express is the FeedHenry MBaaS running on top of [Express](http://expressjs.com/).
 
+|                 | Project Info  |
+| --------------- | ------------- |
+| License:        | Apache License, Version 2.0  |
+| Build:          | npm  |
+| Documentation:  | http://docs.feedhenry.com/v3/api/cloud_api.html  |
+| Issue tracker:  | https://issues.jboss.org/projects/FH/summary  |
+| Mailing list:   | [feedhenry-dev](https://www.redhat.com/archives/feedhenry-dev/) ([subscribe](https://www.redhat.com/mailman/listinfo/feedhenry-dev))  |
+| IRC:            | [#feedhenry](https://webchat.freenode.net/?channels=feedhenry) channel in the [freenode](http://freenode.net/) network.  |
+
 # Usage
 
 Add the following to the 'dependencies' section of the app's **'package.json'** file:
