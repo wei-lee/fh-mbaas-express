@@ -20,6 +20,9 @@ module.exports = {
         "x-fh-auth-app":"testkey"
       }
     }, function(err, response, data){
+        console.log("--------------------");
+        console.log(data);
+        console.log("--------------------");
       assert.ok(!err);
       assert.ok(data.list);
       assert.ok(typeof data.count === "number");
