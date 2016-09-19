@@ -65,6 +65,13 @@ var api = {
       //console.log("Called Mock Timing");
     }
   },
+  "permission_map": {
+    db: {
+      list: {
+        requires: "read"
+      }
+    }
+  },
   "db": function (params, callback) {
     console.log("Called db: ", params);
     var dbReplies = {
