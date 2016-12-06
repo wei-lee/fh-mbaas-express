@@ -1,6 +1,6 @@
 var assert = require('assert');
 var rewire = require("rewire");
-var core = rewire('../../lib/core.js');
+var fhauth = rewire('../../lib/fh-auth.js');
 var mockAPI = require('../fixtures/mockAPI.js');
 
 exports.it_shoudld_test_auth_success = function (finish) {
@@ -29,8 +29,8 @@ exports.it_shoudld_test_auth_success = function (finish) {
     }
   };
 
-  core.__set__("fh", mockAPI);
-  var performAuth = core.__get__("performAuth");
+  fhauth.__set__("fh", mockAPI);
+  var performAuth = fhauth.__get__("performAuth");
   var authCall = performAuth(opts);
   mockAPI.auth.performAuth = function (req, localAuth, cb) {
     return cb(null, opts.localAuth);
@@ -64,8 +64,8 @@ exports.it_shoudld_test_auth_failure = function (finish) {
     }
   };
 
-  core.__set__("fh", mockAPI);
-  var performAuth = core.__get__("performAuth");
+  fhauth.__set__("fh", mockAPI);
+  var performAuth = fhauth.__get__("performAuth");
   var authCall = performAuth(opts);
   mockAPI.auth.performAuth = function (req, localAuth, cb) {
     return cb(null, err);
@@ -95,7 +95,7 @@ exports.it_shoudld_test_auth_not_found = function (finish) {
     }
   };
 
-  var performAuth = core.__get__("performAuth");
+  var performAuth = fhauth.__get__("performAuth");
   var authCall = performAuth(opts);
   mockAPI.auth.performAuth = null;
 
