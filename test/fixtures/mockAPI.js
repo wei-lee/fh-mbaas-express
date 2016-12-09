@@ -95,6 +95,9 @@ var api = {
   "auth": {
     "verify": function(token, opts, cb){
       return cb(null, true);
+    },
+    "performAuth": function(req, localAuth, cb) {
+      return cb(null, localAuth);
     }
   }
 };
