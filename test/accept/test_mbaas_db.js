@@ -2,13 +2,8 @@ var request = require('request');
 var nock = require('nock');
 var assert = require('assert');
 
-module.exports = {
-  "setUp" : function(finish){
-
-    finish();
-  },
-  "test DB call with correct api key and user key" : function(finish){
-    request.post(process.env.FH_TEST_HOSTNAME + '/mbaas/db/',
+function doDbList(cb) {
+  request.post(process.env.FH_TEST_HOSTNAME + '/mbaas/db/',
     {
       json:{
         "act": "list",
@@ -26,8 +21,17 @@ module.exports = {
       assert.ok(!err);
       assert.ok(data.list);
       assert.ok(typeof data.count === "number");
-      finish();
+      cb();
     });
+}
+
+module.exports = {
+  "setUp" : function(finish){
+
+    finish();
+  },
+  "test DB call with correct api key and user key" : function(finish){
+    doDbList(finish);
   },
   "test mbaas DB call with incorrect api key" : function(finish){
     request.post(process.env.FH_TEST_HOSTNAME + '/mbaas/db/',
@@ -62,6 +66,25 @@ module.exports = {
         assert.ok(response.statusCode === 401);
         finish();
       });
+  },
+  "test mbaas DB call with list and write" : function(finish) {
+    doDbList(function(err) {
+      assert.ok(!err, 'db list should work');
+      request.post(process.env.FH_TEST_HOSTNAME + '/mbaas/db/', {
+        json: {
+          "act": "create",
+          "type": "myFirstEntityy",
+          "__fh":{"appkey":"testkey","userkey":"akey"}
+        },
+        headers : {
+          'Content-Type' : 'application/json',
+          "x-fh-auth-app":"testkey"
+        }
+      }, function(err, response, data) {
+        assert.equal(response.statusCode, 401);
+        finish();
+      })
+    });
   },
   tearDown : function(finish){
     finish();

@@ -34,6 +34,7 @@
     "plato": "^1.0.1",
     "proxyquire": "0.4.1",
     "rewire": "^2.5.2",
+    "sinon": "^1.17.7",
     "turbo-test-runner": "~0.3"
   },
   "scripts": {
