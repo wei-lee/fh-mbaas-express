@@ -80,5 +80,53 @@ module.exports = {
       process.env.FH_SERVICE_ACCESS_KEY = "";
       finish();
     });
+  },
+  "test service access using '/hello' OVERRIDES_KEY, hello endpoint": function(finish){
+    process.env.FH_SERVICE_APP = 'true';
+    process.env.FH_SERVICE_ACCESS_KEY = "accesskey1234";
+
+    var req = {
+      headers: {
+        'x-fh-service-access-key': "accesskey1234"
+      }
+    };
+
+    var OVERRIDES_KEY = '/hello';
+
+    var authConfig = {
+      authConfig: "{\"appId\":\"itmi5e3ythuwuclhbg7bmdoi\",\"default\":\"appapikey\",\"environment\":\"dev\",\"overrides\":{\"" + OVERRIDES_KEY + "\":{\"security\":\"https\"}}}"
+    };
+
+    authenticate(req, {}, authConfig).authenticate("/hello", function(err){
+      assert.ok(!err, "Expected No Error " + err);
+      //Restore Env
+      process.env.FH_SERVICE_APP = '';
+      process.env.FH_SERVICE_ACCESS_KEY = "";
+      finish();
+    });
+  },
+  "test service access using '/hello' OVERRIDES_KEY, hello endpoint, and url with unparsed query parameter": function(finish){
+    process.env.FH_SERVICE_APP = 'true';
+    process.env.FH_SERVICE_ACCESS_KEY = "accesskey1234";
+
+    var req = {
+      headers: {
+        'x-fh-service-access-key': "accesskey1234"
+      }
+    };
+
+    var OVERRIDES_KEY = '/hello';
+
+    var authConfig = {
+      authConfig: "{\"appId\":\"itmi5e3ythuwuclhbg7bmdoi\",\"default\":\"appapikey\",\"environment\":\"dev\",\"overrides\":{\"" + OVERRIDES_KEY + "\":{\"security\":\"https\"}}}"
+    };
+
+    authenticate(req, {}, authConfig).authenticate("/hello?hello=world", function(err){
+      assert.ok(!err, "Expected No Error " + err);
+      //Restore Env
+      process.env.FH_SERVICE_APP = '';
+      process.env.FH_SERVICE_ACCESS_KEY = "";
+      finish();
+    });
   }
 };
