@@ -122,9 +122,7 @@ module.exports = {
     };
 
     authenticate(req, {}, authConfig).authenticate("/hello?hello=world", function(err){
-      assert.ok(err, "Expected An Error ");
-      assert.equal(401, err.code);
-      assert.ok(err.message.indexOf('API') > -1 && err.message.indexOf('key') > -1, "Expected A Missing App API key(s) Message");
+      assert.ok(!err, "Expected No Error " + err);
       //Restore Env
       process.env.FH_SERVICE_APP = '';
       process.env.FH_SERVICE_ACCESS_KEY = "";
