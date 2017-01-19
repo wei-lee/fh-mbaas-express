@@ -1,6 +1,6 @@
 {
   "name": "fh-mbaas-express",
-  "version": "5.6.6",
+  "version": "5.6.7",
   "description": "FeedHenry MBAAS Express",
   "main": "lib/webapp.js",
   "dependencies": {
