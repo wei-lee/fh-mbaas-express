@@ -69,6 +69,9 @@ var api = {
     db: {
       list: {
         requires: "read"
+      },
+      create: {
+        requires: "write"
       }
     }
   },
