@@ -96,20 +96,20 @@ Express has a built-in static file server. In this example, we host files under 
 
 ## Cloud
 
-###(POST | GET | PUT | DELETE) /:someFunction
+### (POST | GET | PUT | DELETE) /:someFunction
 **Authentication** : Optional - can be enabled globally or on a per-endpoint basis under "Endpoints" section of the studio.
 **Response formats** : JSON, binary, plain text
 
-###Headers
+### Headers
 **x-fh-auth-app** : API key of your application, found under the "details" section of the studio.
 
-###Body:
+### Body:
 JSON format - paramaters to be passed to the exported function, see 'Writing API Functions'.
-###Response:
+### Response:
 Result as passed to the callback function of the exported function - see 'Writing API Functions'.
 
 
-###Writing API functions
+### Writing API functions
 
 See [Express Router](http://expressjs.com/4x/api.html#router) for more information.
 
@@ -131,15 +131,15 @@ function helloRoute() {
 ```
 
 
-##mBaaS
-###POST /mbaas/db
+## mBaaS
+### POST /mbaas/db
 **Authentication** : Required - App API key goes here.
 **Response format** : JSON
 
-###Headers
+### Headers
 **x-fh-auth-app** : API key of your application, found under the "details" section of the studio.
 
-###POST Body:
+### POST Body:
 JSON body - same as $fh.db params. A summary of body options follows - For more, see [$fh.db docs](http://docs.feedhenry.com/v2/api_cloud_apis.html#$fh.db)
 
     {
@@ -150,55 +150,55 @@ JSON body - same as $fh.db params. A summary of body options follows - For more,
         "eq|ne|in" : "JSON definition of query to match - supported for list only"
     }
 
-###Response:
+### Response:
 As per [$fh.db](http://docs.feedhenry.com/v2/api_cloud_apis.html#$fh.db)
 
-##Sys
-##GET /sys/info/ping
+## Sys
+## GET /sys/info/ping
 **Authentication** : None
 **Response formats** : Plaintext
 
-###Headers
+### Headers
 None
 
-###Response:
+### Response:
     "OK"
 if application is running as expected. Will respond with a 404 otherwise
 
-##GET /sys/info/endpoints
+## GET /sys/info/endpoints
 **Authentication** : None
 **Response formats** : JSON
 
-###Headers
+### Headers
 None
 
-###Response:
+### Response:
     {
       endpoints : ['array of endpoints exported as public functions']
     }
 
-##GET /sys/info/memory
+## GET /sys/info/memory
 **Authentication** : None
 **Response formats** : JSON
 
-###Headers
+### Headers
 None
 
-###Response:
+### Response:
     {
       rss: 13721600, // Resident set size
       heapTotal: 7195904, // V8's total available memory
       heapUsed: 2369744  // V8's used memory
     }
 
-##GET /sys/info/memory
+## GET /sys/info/memory
 **Authentication** : None
 **Response formats** : Plaintext
 
-###Headers
+### Headers
 None
 
-###Response:
+### Response:
     0.1.0
 
 # Backward compatability with main.js
