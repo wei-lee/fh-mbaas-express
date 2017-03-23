@@ -102,6 +102,11 @@ var api = {
     "performAuth": function(req, localAuth, cb) {
       return cb(null, localAuth);
     }
+  },
+  "sync": {
+    "getStats": function(cb) {
+      return cb(null, {});
+    }
   }
 };
 
